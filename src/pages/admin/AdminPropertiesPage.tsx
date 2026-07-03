@@ -281,7 +281,7 @@ export function AdminPropertiesPage() {
                     <div key={field}>
                       <label className="block text-xs font-medium text-[var(--color-text-muted)] mb-1.5">{label}</label>
                       <select
-                        value={(form as Record<string, string>)[field]}
+                        value={(form as Record<string, unknown>)[field]}
                         onChange={(e) => f(field as keyof FormState, e.target.value)}
                         className="w-full h-10 px-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]"
                       >
@@ -323,7 +323,7 @@ export function AdminPropertiesPage() {
                     { label: 'Garage', field: 'garage' },
                     { label: 'Year Built', field: 'year_built' },
                   ].map(({ label, field }) => (
-                    <Input key={field} label={label} type="number" value={(form as Record<string, string>)[field]} onChange={(e) => f(field as keyof FormState, e.target.value)} placeholder="—" />
+                    <Input key={field} label={label} type="number" value={(form as Record<string, unknown>)[field]} onChange={(e) => f(field as keyof FormState, e.target.value)} placeholder="—" />
                   ))}
                 </div>
               </div>

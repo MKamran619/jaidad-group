@@ -35,7 +35,7 @@ export function useSettings() {
       for (const row of (data ?? []) as Array<{ key: string; value: unknown }>) {
         settings[row.key] = row.value
       }
-      return settings as Partial<SiteSettings>
+      return settings
     },
     staleTime: 1000 * 60 * 30,
   })
