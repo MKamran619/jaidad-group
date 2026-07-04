@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
+import { useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
+import { FiCheck } from 'react-icons/fi'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { Textarea } from '@/components/ui/Textarea'
 import { supabase } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils/cn'
+import { getLightThemes, getDarkThemes } from '@/lib/themes'
+import { DEFAULT_LIGHT_THEME_ID, DEFAULT_DARK_THEME_ID } from '@/hooks/useTheme'
 
 type Settings = Record<string, string>
 
@@ -30,8 +34,8 @@ const DEFAULT_SETTINGS: Settings = {
   youtube_url: 'https://youtube.com/jaidadgroup',
   linkedin_url: 'https://linkedin.com/company/jaidadgroup',
   twitter_url: 'https://twitter.com/jaidadgroup',
-  primary_color: '#F5A623',
-  dark_mode_default: 'false',
+  theme_light: DEFAULT_LIGHT_THEME_ID,
+  theme_dark: DEFAULT_DARK_THEME_ID,
   meta_title: 'J+ Jaidad Group – Premium Real Estate Pakistan',
   meta_description: 'Find your dream property with J+ Jaidad Group. Premium properties, projects, and construction services across Pakistan.',
   meta_keywords: 'real estate Pakistan, property Lahore, DHA houses, Bahria Town, construction services',
@@ -59,8 +63,8 @@ const FIELD_GROUPS: Record<string, { label: string; field: string; type?: string
     { label: 'Twitter / X URL', field: 'twitter_url', type: 'url' },
   ],
   theme: [
-    { label: 'Primary (Gold) Color', field: 'primary_color', type: 'color' },
-    { label: 'Default Dark Mode (true/false)', field: 'dark_mode_default' },
+    { label: 'Light Theme', field: 'theme_light', type: 'theme-picker' },
+    { label: 'Dark Theme', field: 'theme_dark', type: 'theme-picker' },
   ],
   seo: [
     { label: 'Meta Title', field: 'meta_title' },
@@ -71,6 +75,7 @@ const FIELD_GROUPS: Record<string, { label: string; field: string; type?: string
 }
 
 export function AdminSettingsPage() {
+  const queryClient = useQueryClient()
   const [activeTab, setActiveTab] = useState('general')
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS)
   const [loading, setLoading] = useState(true)
@@ -111,6 +116,7 @@ export function AdminSettingsPage() {
       }
     }
     setSaving(false)
+    queryClient.invalidateQueries({ queryKey: ['site-settings'] })
     if (errorCount > 0) {
       toast.info('Settings saved locally (demo mode — connect Supabase to persist)')
     } else {
@@ -161,22 +167,33 @@ export function AdminSettingsPage() {
                   onChange={(e) => update(field.field, e.target.value)}
                   rows={3}
                 />
-              ) : field.type === 'color' ? (
+              ) : field.type === 'theme-picker' ? (
                 <div>
-                  <label className="block text-xs font-medium text-[var(--text-muted)] mb-1.5">{field.label}</label>
-                  <div className="flex items-center gap-3">
-                    <input
-                      type="color"
-                      value={settings[field.field] ?? '#F5A623'}
-                      onChange={(e) => update(field.field, e.target.value)}
-                      className="h-10 w-20 rounded-lg border border-[var(--border)] cursor-pointer"
-                    />
-                    <Input
-                      value={settings[field.field] ?? ''}
-                      onChange={(e) => update(field.field, e.target.value)}
-                      placeholder="#F5A623"
-                      className="flex-1"
-                    />
+                  <label className="block text-xs font-medium text-[var(--text-muted)] mb-2">{field.label}</label>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    {(field.field === 'theme_light' ? getLightThemes() : getDarkThemes()).map((t) => {
+                      const selected = settings[field.field] === t.id
+                      return (
+                        <button
+                          key={t.id}
+                          type="button"
+                          onClick={() => update(field.field, t.id)}
+                          className={cn(
+                            'flex items-center gap-2 rounded-xl border px-3 py-2 text-left text-sm transition-all',
+                            selected
+                              ? 'border-[var(--primary)] bg-[var(--primary)]/10'
+                              : 'border-[var(--border)] hover:border-[var(--primary)]/50'
+                          )}
+                        >
+                          <span
+                            className="h-6 w-6 flex-shrink-0 rounded-full border border-[var(--border)]"
+                            style={{ background: t.gradient }}
+                          />
+                          <span className="flex-1 truncate text-[var(--text)]">{t.name}</span>
+                          {selected && <FiCheck className="h-4 w-4 flex-shrink-0 text-[var(--primary)]" />}
+                        </button>
+                      )
+                    })}
                   </div>
                 </div>
               ) : (
