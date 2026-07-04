@@ -27,7 +27,6 @@ export function ConstructionPage() {
 
   const phone     = settings?.['phone']    as string | undefined
   const whatsapp  = (settings?.['whatsapp'] as string | undefined)?.replace(/\D/g, '')
-  const heroImage = settings?.['construction_hero_image'] as string | undefined
 
   const statsProjects  = settings?.['construction_stat_projects']  as string | undefined
   const statsYears     = settings?.['construction_stat_years']     as string | undefined
@@ -67,25 +66,21 @@ export function ConstructionPage() {
       </Helmet>
 
       {/* Hero */}
-      <div className="relative bg-[var(--color-brand-black)] py-28 overflow-hidden">
-        {heroImage ? (
-          <div
-            className="absolute inset-0 opacity-50"
-            style={{ backgroundImage: `url('${heroImage}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-          />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-black to-zinc-900" />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
-        <div className="relative container mx-auto px-4">
+      <div className="relative bg-[var(--background)] py-28 overflow-hidden">
+        <div className="hero-bg-effects">
+          <div className="grid-pattern" />
+          <div className="gradient-orb orb-1" />
+          <div className="gradient-orb orb-2" />
+        </div>
+        <div className="relative z-[2] container mx-auto px-4">
           <div className="max-w-2xl">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
               <p className="text-[var(--primary)] text-xs font-bold uppercase tracking-widest mb-4">Premium Construction</p>
-              <h1 className="font-display text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+              <h1 className="font-display text-4xl md:text-6xl font-black text-[var(--text)] mb-6 leading-tight">
                 Build Your Dream <br />
                 <span className="text-[var(--primary)]">Home With Us</span>
               </h1>
-              <p className="text-white/70 text-lg mb-8 leading-relaxed">
+              <p className="text-[var(--text-muted)] text-lg mb-8 leading-relaxed">
                 From architecture to finishing, we deliver turnkey construction solutions with unmatched quality and transparency.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -158,7 +153,7 @@ export function ConstructionPage() {
                         transition={{ delay: i * 0.1 }}
                         className="group rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] hover:shadow-xl transition-all duration-300"
                       >
-                        <div className="h-48 overflow-hidden bg-[var(--color-brand-black)]">
+                        <div className="h-48 overflow-hidden bg-[var(--surface)]">
                           {service.image ? (
                             <img
                               src={service.image}
@@ -168,7 +163,7 @@ export function ConstructionPage() {
                             />
                           ) : (
                             <div className="h-full w-full flex items-center justify-center">
-                              <Icon className="h-12 w-12 text-white/20" />
+                              <Icon className="h-12 w-12 text-[var(--text-muted)]/40" />
                             </div>
                           )}
                         </div>

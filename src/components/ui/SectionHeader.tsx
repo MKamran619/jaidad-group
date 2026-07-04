@@ -7,7 +7,6 @@ interface SectionHeaderProps {
   highlightedWord?: string
   description?: string
   align?: 'left' | 'center' | 'right'
-  dark?: boolean
   className?: string
 }
 
@@ -17,7 +16,6 @@ export function SectionHeader({
   highlightedWord,
   description,
   align = 'center',
-  dark = false,
   className,
 }: SectionHeaderProps) {
   const alignClass = {
@@ -53,21 +51,11 @@ export function SectionHeader({
           <span className="h-px w-8 bg-[var(--primary)]" />
         </span>
       )}
-      <h2
-        className={cn(
-          'font-display text-3xl font-bold leading-tight md:text-4xl lg:text-5xl',
-          dark ? 'text-white' : 'text-[var(--text)]'
-        )}
-      >
+      <h2 className="font-display text-3xl font-bold leading-tight md:text-4xl lg:text-5xl text-[var(--text)]">
         {renderTitle()}
       </h2>
       {description && (
-        <p
-          className={cn(
-            'max-w-2xl text-base leading-relaxed',
-            dark ? 'text-white/70' : 'text-[var(--text-muted)]'
-          )}
-        >
+        <p className="max-w-2xl text-base leading-relaxed text-[var(--text-muted)]">
           {description}
         </p>
       )}

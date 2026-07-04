@@ -10,7 +10,7 @@ const buttonVariants = cva(
         primary:
           'btn-shine bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)] shadow-[0_10px_40px_var(--shadow-color)] hover:shadow-[0_20px_50px_var(--shadow-color)] hover:-translate-y-0.5 active:translate-y-0',
         secondary:
-          'btn-shine bg-[var(--color-brand-black)] text-white hover:bg-[var(--color-brand-charcoal)] shadow-lg hover:shadow-xl hover:-translate-y-0.5',
+          'btn-shine bg-[var(--text)] text-[var(--background)] hover:opacity-90 shadow-lg hover:shadow-xl hover:-translate-y-0.5',
         outline:
           'btn-shine border-2 border-[var(--primary)] text-[var(--primary)] bg-transparent backdrop-blur-sm hover:bg-[var(--surface)] hover:border-[var(--primary-light)] hover:text-[var(--primary-light)] hover:-translate-y-0.5',
         ghost:

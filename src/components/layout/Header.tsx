@@ -36,7 +36,7 @@ export function Header() {
     <>
       {/* Top Bar — only shown when there's content to display */}
       {(welcomeText || phone || whatsapp) && (
-        <div className="hidden md:block bg-[var(--color-brand-black)] text-white/80 text-xs py-2">
+        <div className="hidden md:block bg-[var(--surface-alt)] text-[var(--text-muted)] text-xs py-2">
           <div className="container mx-auto px-4 flex items-center justify-between">
             <p>{welcomeText}</p>
             <div className="flex items-center gap-4">
@@ -75,8 +75,8 @@ export function Header() {
           <div className="flex h-18 items-center justify-between gap-4">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 flex-shrink-0">
-              <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-[var(--color-brand-black)] shadow-lg">
-                <span className="font-display font-black text-[var(--primary)] text-lg">J+</span>
+              <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-[var(--primary)] shadow-lg">
+                <span className="font-display font-black text-white text-lg">J+</span>
               </div>
               <div className="hidden sm:block">
                 <p className="font-display font-bold text-[var(--text)] text-sm leading-tight">Jaidad Group</p>

@@ -53,8 +53,8 @@ export function PropertyCard({ property, className, compact = false }: PropertyC
               loading="lazy"
             />
           ) : (
-            <div className="h-full w-full bg-[var(--color-brand-black)] flex items-center justify-center">
-              <span className="text-white/30 text-sm">No image</span>
+            <div className="h-full w-full bg-[var(--surface-alt)] flex items-center justify-center">
+              <span className="text-[var(--text-muted)] text-sm">No image</span>
             </div>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

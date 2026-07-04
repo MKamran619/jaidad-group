@@ -76,13 +76,13 @@ export function GalleryPage() {
       </Helmet>
 
       {/* Hero */}
-      <div className="bg-[var(--color-brand-black)] py-20 text-center">
+      <div className="bg-[var(--surface)] py-20 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <p className="text-[var(--primary)] text-xs font-bold uppercase tracking-widest mb-3">Visual Portfolio</p>
-          <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-4">
+          <h1 className="font-display text-4xl md:text-5xl font-black text-[var(--text)] mb-4">
             Our <span className="text-[var(--primary)]">Gallery</span>
           </h1>
-          <p className="text-white/60 max-w-xl mx-auto text-sm">
+          <p className="text-[var(--text-muted)] max-w-xl mx-auto text-sm">
             Explore our collection of premium properties, ongoing projects, and construction work across Pakistan.
           </p>
         </motion.div>

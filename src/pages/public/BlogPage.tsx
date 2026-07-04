@@ -63,14 +63,14 @@ export function BlogPage() {
         <meta name="description" content="Stay informed with the latest real estate news, market analysis, investment guides, and property tips from J+ Jaidad Group." />
       </Helmet>
 
-      <div className="bg-[var(--color-brand-black)] py-20">
+      <div className="bg-[var(--surface)] py-20">
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)] mb-3">Knowledge Hub</p>
-            <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-4">
+            <h1 className="font-display text-4xl md:text-5xl font-black text-[var(--text)] mb-4">
               Our <span className="gradient-text">Blog</span>
             </h1>
-            <p className="text-white/60 max-w-xl mx-auto">Market insights, investment guides, and real estate expertise</p>
+            <p className="text-[var(--text-muted)] max-w-xl mx-auto">Market insights, investment guides, and real estate expertise</p>
           </motion.div>
         </div>
       </div>
@@ -127,8 +127,8 @@ export function BlogPage() {
                     {featured.cover_image ? (
                       <img src={featured.cover_image} alt={featured.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     ) : (
-                      <div className="h-full w-full bg-[var(--color-brand-black)] flex items-center justify-center">
-                        <span className="text-white/30 text-sm">No image</span>
+                      <div className="h-full w-full bg-[var(--surface-alt)] flex items-center justify-center">
+                        <span className="text-[var(--text-muted)] text-sm">No image</span>
                       </div>
                     )}
                     <div className="absolute top-4 left-4"><Badge>Featured</Badge></div>
@@ -165,7 +165,7 @@ export function BlogPage() {
                       {blog.cover_image ? (
                         <img src={blog.cover_image} alt={blog.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                       ) : (
-                        <div className="h-full w-full bg-[var(--color-brand-black)] flex items-center justify-center">
+                        <div className="h-full w-full bg-[var(--surface)] flex items-center justify-center">
                           <span className="text-white/30 text-sm">No image</span>
                         </div>
                       )}

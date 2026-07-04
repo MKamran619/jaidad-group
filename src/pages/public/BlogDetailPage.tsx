@@ -90,22 +90,29 @@ export function BlogDetailPage() {
       </Helmet>
 
       {/* Hero */}
-      <div className="relative min-h-[420px] flex items-end bg-[var(--color-brand-black)] overflow-hidden">
-        {blog.cover_image && (
-          <img
-            src={blog.cover_image}
-            alt={blog.title}
-            className="absolute inset-0 h-full w-full object-cover opacity-40"
-          />
+      <div className="relative min-h-[420px] flex items-end bg-[var(--background)] overflow-hidden">
+        {blog.cover_image ? (
+          <>
+            <img
+              src={blog.cover_image}
+              alt={blog.title}
+              className="absolute inset-0 h-full w-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+          </>
+        ) : (
+          <div className="hero-bg-effects">
+            <div className="grid-pattern" />
+            <div className="gradient-orb orb-1" />
+          </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
-        <div className="relative container mx-auto px-4 pb-12 pt-24">
+        <div className="relative z-[2] container mx-auto px-4 pb-12 pt-24">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Badge variant="default" className="mb-4">{blog.category}</Badge>
-            <h1 className="font-display text-3xl md:text-5xl font-black text-white max-w-4xl leading-tight mb-4">
+            <h1 className={cn('font-display text-3xl md:text-5xl font-black max-w-4xl leading-tight mb-4', blog.cover_image ? 'text-white' : 'text-[var(--text)]')}>
               {blog.title}
             </h1>
-            <div className="flex flex-wrap items-center gap-5 text-sm text-white/70">
+            <div className={cn('flex flex-wrap items-center gap-5 text-sm', blog.cover_image ? 'text-white/70' : 'text-[var(--text-muted)]')}>
               <span className="flex items-center gap-1.5">
                 <FiCalendar className="h-4 w-4" />
                 {formatDate(blog.published_at ?? blog.created_at)}

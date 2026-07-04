@@ -59,12 +59,12 @@ export function ContactPage() {
       </Helmet>
 
       {/* Header */}
-      <div className="bg-[var(--color-brand-black)] py-20">
+      <div className="bg-[var(--surface)] py-20">
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)] mb-3">Get in Touch</p>
-            <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-4">Contact <span className="gradient-text">Us</span></h1>
-            <p className="text-white/60 max-w-xl mx-auto">Our team is here to help you find your perfect property. Reach out anytime.</p>
+            <h1 className="font-display text-4xl md:text-5xl font-black text-[var(--text)] mb-4">Contact <span className="gradient-text">Us</span></h1>
+            <p className="text-[var(--text-muted)] max-w-xl mx-auto">Our team is here to help you find your perfect property. Reach out anytime.</p>
           </motion.div>
         </div>
       </div>

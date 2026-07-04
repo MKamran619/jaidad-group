@@ -98,7 +98,7 @@ export function ProjectDetailPage() {
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
-          <div className="absolute inset-0 bg-[var(--color-brand-black)]" />
+          <div className="absolute inset-0 bg-[var(--surface)]" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
 
@@ -341,7 +341,7 @@ export function ProjectDetailPage() {
                   to={`/projects/${p.slug}`}
                   className="group rounded-2xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden hover:border-[var(--primary)] transition-all hover:shadow-md"
                 >
-                  <div className="aspect-video overflow-hidden bg-[var(--color-brand-black)]">
+                  <div className="aspect-video overflow-hidden bg-[var(--surface)]">
                     {p.images[0] ? (
                       <img
                         src={p.images[0]}
@@ -351,7 +351,7 @@ export function ProjectDetailPage() {
                       />
                     ) : (
                       <div className="h-full w-full flex items-center justify-center">
-                        <span className="text-white/30 text-sm">No image</span>
+                        <span className="text-[var(--text-muted)] text-sm">No image</span>
                       </div>
                     )}
                   </div>

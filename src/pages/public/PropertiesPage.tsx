@@ -70,16 +70,16 @@ export function PropertiesPage() {
       </Helmet>
 
       {/* Page Header */}
-      <div className="bg-[var(--color-brand-black)] py-16">
+      <div className="bg-[var(--surface)] py-16">
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)] mb-3">
               Find Your Property
             </p>
-            <h1 className="font-display text-3xl md:text-5xl font-black text-white mb-4">
+            <h1 className="font-display text-3xl md:text-5xl font-black text-[var(--text)] mb-4">
               Properties for Sale & Rent
             </h1>
-            <p className="text-white/60 max-w-xl mx-auto">
+            <p className="text-[var(--text-muted)] max-w-xl mx-auto">
               Explore our curated portfolio of verified premium properties across Pakistan
             </p>
           </motion.div>

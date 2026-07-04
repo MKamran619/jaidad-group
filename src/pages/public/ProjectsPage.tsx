@@ -68,17 +68,17 @@ export function ProjectsPage() {
       </Helmet>
 
       {/* Hero */}
-      <div className="relative bg-[var(--color-brand-black)] py-28 overflow-hidden">
+      <div className="relative bg-[var(--surface)] py-28 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}
+          style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, var(--text) 1px, transparent 0)', backgroundSize: '32px 32px' }}
         />
         <div className="relative container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="text-[var(--primary)] text-xs font-bold uppercase tracking-widest mb-4">Our Developments</p>
-            <h1 className="font-display text-4xl md:text-6xl font-black text-white mb-6">
+            <h1 className="font-display text-4xl md:text-6xl font-black text-[var(--text)] mb-6">
               Premium <span className="text-[var(--primary)]">Projects</span>
             </h1>
-            <p className="text-white/70 text-lg max-w-2xl mx-auto">
+            <p className="text-[var(--text-muted)] text-lg max-w-2xl mx-auto">
               World-class residential and commercial developments reshaping Pakistan's urban landscape.
             </p>
           </motion.div>
@@ -141,8 +141,8 @@ export function ProjectsPage() {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="h-full w-full bg-[var(--color-brand-black)] flex items-center justify-center">
-                          <span className="text-white/30 text-sm">No image</span>
+                        <div className="h-full w-full bg-[var(--surface-alt)] flex items-center justify-center">
+                          <span className="text-[var(--text-muted)] text-sm">No image</span>
                         </div>
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />

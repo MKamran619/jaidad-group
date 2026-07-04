@@ -28,9 +28,9 @@ export function TestimonialsSection() {
   if (!isLoading && (!testimonials || testimonials.length === 0)) return null
 
   return (
-    <section className="section-padding bg-[var(--color-brand-black)] relative overflow-hidden">
+    <section className="section-padding bg-[var(--surface)] relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]"
-        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}
+        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, var(--text) 1px, transparent 0)', backgroundSize: '32px 32px' }}
       />
       <div className="container relative mx-auto px-4">
         <SectionHeader
@@ -38,7 +38,6 @@ export function TestimonialsSection() {
           title="What Our"
           highlightedWord="Clients Say"
           description="Real experiences from our satisfied clients across Pakistan"
-          dark
         />
 
         {isLoading ? (
@@ -77,13 +76,13 @@ export function TestimonialsSection() {
                     ))}
                   </div>
 
-                  <p className="text-white/80 text-sm leading-relaxed flex-1">"{t.review}"</p>
+                  <p className="text-[var(--text)]/80 text-sm leading-relaxed flex-1">"{t.review}"</p>
 
                   {t.property_purchased && (
                     <p className="text-[var(--primary)] text-xs font-medium">{t.property_purchased}</p>
                   )}
 
-                  <div className="flex items-center gap-3 pt-3 border-t border-white/10">
+                  <div className="flex items-center gap-3 pt-3 border-t border-[var(--border)]">
                     {t.image ? (
                       <img
                         src={t.image}
@@ -96,9 +95,9 @@ export function TestimonialsSection() {
                       </div>
                     )}
                     <div>
-                      <p className="text-white font-semibold text-sm">{t.name}</p>
+                      <p className="text-[var(--text)] font-semibold text-sm">{t.name}</p>
                       {t.designation && (
-                        <p className="text-white/50 text-xs">{t.designation}{t.company ? ` · ${t.company}` : ''}</p>
+                        <p className="text-[var(--text-muted)] text-xs">{t.designation}{t.company ? ` · ${t.company}` : ''}</p>
                       )}
                     </div>
                   </div>

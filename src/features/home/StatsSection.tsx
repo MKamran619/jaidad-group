@@ -50,9 +50,9 @@ export function StatsSection() {
   if (!isLoading && stats.length === 0) return null
 
   return (
-    <section className="relative py-20 overflow-hidden bg-[var(--color-brand-black)]">
+    <section className="relative py-20 overflow-hidden bg-[var(--surface)]">
       <div className="absolute inset-0 opacity-5"
-        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}
+        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, var(--text) 1px, transparent 0)', backgroundSize: '40px 40px' }}
       />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-full max-w-2xl bg-gradient-to-r from-transparent via-[var(--primary)] to-transparent" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-full max-w-2xl bg-gradient-to-r from-transparent via-[var(--primary)] to-transparent" />
@@ -62,8 +62,8 @@ export function StatsSection() {
           {isLoading
             ? Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} className="flex flex-col items-center gap-2">
-                  <div className="h-10 w-24 rounded shimmer bg-white/10" />
-                  <div className="h-3 w-20 rounded shimmer bg-white/10" />
+                  <div className="h-10 w-24 rounded shimmer" />
+                  <div className="h-3 w-20 rounded shimmer" />
                 </div>
               ))
             : stats.map((stat, i) => {
@@ -80,7 +80,7 @@ export function StatsSection() {
                     <p className="font-display text-3xl md:text-4xl font-black text-[var(--primary)]">
                       <AnimatedCounter value={parsed.value} prefix={parsed.prefix} suffix={parsed.suffix} />
                     </p>
-                    <p className="text-xs text-white/50 uppercase tracking-widest">{stat.label}</p>
+                    <p className="text-xs text-[var(--text-muted)] uppercase tracking-widest">{stat.label}</p>
                   </motion.div>
                 )
               })}

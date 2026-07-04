@@ -32,26 +32,26 @@ export function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--color-brand-black)] relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 opacity-20">
-        <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1920&q=30" alt="" className="h-full w-full object-cover" />
+    <div className="min-h-screen flex items-center justify-center bg-[var(--background)] relative overflow-hidden">
+      <div className="hero-bg-effects">
+        <div className="grid-pattern" />
+        <div className="gradient-orb orb-1" />
+        <div className="gradient-orb orb-2" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-black/80 to-[var(--primary)]/10" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative w-full max-w-md mx-4"
+        className="relative z-[2] w-full max-w-md mx-4"
       >
-        <div className="glass rounded-3xl p-10 shadow-2xl border border-white/10">
+        <div className="rounded-3xl p-10 shadow-2xl border border-[var(--border)] bg-[var(--card-bg,var(--surface))] backdrop-blur-xl">
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--primary)] shadow-lg mb-4">
               <span className="font-display font-black text-white text-2xl">J+</span>
             </div>
-            <h1 className="font-display text-2xl font-bold text-white">Admin Portal</h1>
-            <p className="text-white/50 text-sm mt-1">J+ Jaidad Group Dashboard</p>
+            <h1 className="font-display text-2xl font-bold text-[var(--text)]">Admin Portal</h1>
+            <p className="text-[var(--text-muted)] text-sm mt-1">J+ Jaidad Group Dashboard</p>
           </div>
 
           {error && (
@@ -62,13 +62,13 @@ export function AdminLoginPage() {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-white/80">Email Address</label>
+              <label className="mb-1.5 block text-sm font-medium text-[var(--text-muted)]">Email Address</label>
               <div className="relative">
-                <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40 pointer-events-none" />
+                <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--text-muted)] pointer-events-none" />
                 <input
                   type="email"
                   placeholder="admin@jaidadgroup.com"
-                  className="flex h-11 w-full rounded-xl border border-white/20 bg-white/10 px-4 pl-10 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
+                  className="flex h-11 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 pl-10 text-sm text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
                   {...register('email')}
                 />
               </div>
@@ -76,16 +76,16 @@ export function AdminLoginPage() {
             </div>
 
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-white/80">Password</label>
+              <label className="mb-1.5 block text-sm font-medium text-[var(--text-muted)]">Password</label>
               <div className="relative">
-                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40 pointer-events-none" />
+                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--text-muted)] pointer-events-none" />
                 <input
                   type={showPwd ? 'text' : 'password'}
                   placeholder="••••••••"
-                  className="flex h-11 w-full rounded-xl border border-white/20 bg-white/10 px-4 pl-10 pr-10 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
+                  className="flex h-11 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 pl-10 pr-10 text-sm text-[var(--text)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
                   {...register('password')}
                 />
-                <button type="button" onClick={() => setShowPwd(!showPwd)} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white">
+                <button type="button" onClick={() => setShowPwd(!showPwd)} className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text)]">
                   {showPwd ? <FiEyeOff className="h-4 w-4" /> : <FiEye className="h-4 w-4" />}
                 </button>
               </div>
@@ -97,7 +97,7 @@ export function AdminLoginPage() {
             </Button>
           </form>
 
-          <p className="mt-6 text-center text-xs text-white/30">
+          <p className="mt-6 text-center text-xs text-[var(--text-muted)]">
             Restricted access — authorized personnel only
           </p>
         </div>

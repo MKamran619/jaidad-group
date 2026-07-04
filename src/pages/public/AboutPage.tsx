@@ -6,6 +6,7 @@ import { StatsSection } from '@/features/home/StatsSection'
 import { TestimonialsSection } from '@/features/home/TestimonialsSection'
 import { CTASection } from '@/features/home/CTASection'
 import { useSettings } from '@/hooks/useSettings'
+import { cn } from '@/lib/utils/cn'
 
 interface TeamMember {
   name: string
@@ -40,20 +41,25 @@ export function AboutPage() {
       </Helmet>
 
       {/* Hero */}
-      <div className="relative bg-[var(--color-brand-black)] py-24 overflow-hidden">
-        {heroImage && (
+      <div className="relative bg-[var(--surface)] py-24 overflow-hidden">
+        {heroImage ? (
           <div className="absolute inset-0 opacity-30">
             <img src={heroImage} alt="" className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-black/60" />
           </div>
+        ) : (
+          <div className="hero-bg-effects">
+            <div className="grid-pattern" />
+            <div className="gradient-orb orb-1" />
+          </div>
         )}
-        <div className="container relative mx-auto px-4 text-center">
+        <div className="container relative z-[2] mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)] mb-3">Our Story</p>
-            <h1 className="font-display text-4xl md:text-6xl font-black text-white mb-5">
+            <h1 className={cn('font-display text-4xl md:text-6xl font-black mb-5', heroImage ? 'text-white' : 'text-[var(--text)]')}>
               About <span className="gradient-text">J+ Jaidad Group</span>
             </h1>
-            <p className="text-white/60 max-w-2xl mx-auto text-lg">
+            <p className={cn('max-w-2xl mx-auto text-lg', heroImage ? 'text-white/60' : 'text-[var(--text-muted)]')}>
               Years of excellence, trust, and innovation in Pakistan's real estate landscape
             </p>
           </motion.div>
