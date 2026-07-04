@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { Toaster } from 'sonner'
 
 import { Layout } from '@/components/layout/Layout'
+import { ScrollToTop } from '@/components/layout/ScrollToTop'
 import { HomePage } from '@/pages/public/HomePage'
 import { PropertiesPage } from '@/pages/public/PropertiesPage'
 import { PropertyDetailPage } from '@/pages/public/PropertyDetailPage'
@@ -73,6 +74,7 @@ export default function App() {
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             {/* Public Routes */}
             <Route element={<Layout />}>
