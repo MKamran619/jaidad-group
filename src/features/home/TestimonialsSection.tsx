@@ -69,18 +69,18 @@ export function TestimonialsSection() {
                   transition={{ delay: i * 0.15 }}
                   className="glass rounded-2xl p-7 h-full flex flex-col gap-4"
                 >
-                  <FaQuoteLeft className="text-[var(--color-brand-gold)] h-6 w-6 opacity-60" />
+                  <FaQuoteLeft className="text-[var(--primary)] h-6 w-6 opacity-60" />
 
                   <div className="flex gap-1">
                     {Array.from({ length: t.rating }).map((_, j) => (
-                      <FiStar key={j} className="h-4 w-4 fill-[var(--color-brand-gold)] text-[var(--color-brand-gold)]" />
+                      <FiStar key={j} className="h-4 w-4 fill-[var(--primary)] text-[var(--primary)]" />
                     ))}
                   </div>
 
                   <p className="text-white/80 text-sm leading-relaxed flex-1">"{t.review}"</p>
 
                   {t.property_purchased && (
-                    <p className="text-[var(--color-brand-gold)] text-xs font-medium">{t.property_purchased}</p>
+                    <p className="text-[var(--primary)] text-xs font-medium">{t.property_purchased}</p>
                   )}
 
                   <div className="flex items-center gap-3 pt-3 border-t border-white/10">
@@ -88,10 +88,10 @@ export function TestimonialsSection() {
                       <img
                         src={t.image}
                         alt={t.name}
-                        className="h-10 w-10 rounded-full object-cover ring-2 ring-[var(--color-brand-gold)]/30"
+                        className="h-10 w-10 rounded-full object-cover ring-2 ring-[var(--primary)]/30"
                       />
                     ) : (
-                      <div className="h-10 w-10 rounded-full bg-[var(--color-brand-gold)] flex items-center justify-center text-white font-bold text-sm">
+                      <div className="h-10 w-10 rounded-full bg-[var(--primary)] flex items-center justify-center text-white font-bold text-sm">
                         {t.name[0]}
                       </div>
                     )}

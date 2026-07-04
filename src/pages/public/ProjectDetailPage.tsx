@@ -63,9 +63,9 @@ export function ProjectDetailPage() {
   if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-20 space-y-6">
-        <div className="h-[60vh] rounded-2xl shimmer bg-[var(--color-surface)]" />
-        <div className="h-8 w-2/3 rounded shimmer bg-[var(--color-surface)]" />
-        <div className="h-4 w-1/2 rounded shimmer bg-[var(--color-surface)]" />
+        <div className="h-[60vh] rounded-2xl shimmer bg-[var(--surface)]" />
+        <div className="h-8 w-2/3 rounded shimmer bg-[var(--surface)]" />
+        <div className="h-4 w-1/2 rounded shimmer bg-[var(--surface)]" />
       </div>
     )
   }
@@ -73,8 +73,8 @@ export function ProjectDetailPage() {
   if (!project) {
     return (
       <div className="container mx-auto px-4 py-32 text-center">
-        <p className="text-4xl font-black text-[var(--color-text)] mb-4">Project Not Found</p>
-        <p className="text-[var(--color-text-muted)] mb-8">This project may have been removed or the link is incorrect.</p>
+        <p className="text-4xl font-black text-[var(--text)] mb-4">Project Not Found</p>
+        <p className="text-[var(--text-muted)] mb-8">This project may have been removed or the link is incorrect.</p>
         <Link to="/projects" className={buttonVariants({ variant: 'primary', size: 'md' })}>View All Projects</Link>
       </div>
     )
@@ -116,17 +116,17 @@ export function ProjectDetailPage() {
             </h1>
             <div className="flex flex-wrap items-center gap-5 text-white/70 text-sm">
               <span className="flex items-center gap-1.5">
-                <FiMapPin className="h-4 w-4 text-[var(--color-brand-gold)]" />
+                <FiMapPin className="h-4 w-4 text-[var(--primary)]" />
                 {project.location}
               </span>
               {project.completion_date && (
                 <span className="flex items-center gap-1.5">
-                  <FiCalendar className="h-4 w-4 text-[var(--color-brand-gold)]" />
+                  <FiCalendar className="h-4 w-4 text-[var(--primary)]" />
                   Est. Completion: {new Date(project.completion_date).toLocaleDateString('en-PK', { month: 'long', year: 'numeric' })}
                 </span>
               )}
               {project.starting_price && (
-                <span className="text-[var(--color-brand-gold)] font-semibold">
+                <span className="text-[var(--primary)] font-semibold">
                   Starting from {formatPrice(project.starting_price, 'PKR')}
                 </span>
               )}
@@ -136,7 +136,7 @@ export function ProjectDetailPage() {
       </div>
 
       {/* Quick Stats Bar */}
-      <div className="bg-[var(--color-brand-gold)]">
+      <div className="bg-[var(--primary)]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-amber-500/40">
             {[
@@ -170,12 +170,12 @@ export function ProjectDetailPage() {
 
             {/* Description */}
             <section>
-              <h2 className="font-display text-2xl font-bold text-[var(--color-text)] mb-4">About This Project</h2>
-              <p className="text-[var(--color-text-muted)] leading-relaxed text-base">{project.description}</p>
+              <h2 className="font-display text-2xl font-bold text-[var(--text)] mb-4">About This Project</h2>
+              <p className="text-[var(--text-muted)] leading-relaxed text-base">{project.description}</p>
               {project.investment_details && (
                 <div className="mt-6 rounded-2xl bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800/30 p-5">
-                  <h3 className="font-semibold text-[var(--color-brand-gold)] mb-2">Investment Details</h3>
-                  <p className="text-sm text-[var(--color-text-muted)]">{project.investment_details}</p>
+                  <h3 className="font-semibold text-[var(--primary)] mb-2">Investment Details</h3>
+                  <p className="text-sm text-[var(--text-muted)]">{project.investment_details}</p>
                 </div>
               )}
             </section>
@@ -183,17 +183,17 @@ export function ProjectDetailPage() {
             {/* Progress Bar */}
             {project.project_status !== 'upcoming' && (
               <section>
-                <h2 className="font-display text-2xl font-bold text-[var(--color-text)] mb-4">Construction Progress</h2>
-                <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+                <h2 className="font-display text-2xl font-bold text-[var(--text)] mb-4">Construction Progress</h2>
+                <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-[var(--color-text)]">Overall Completion</span>
-                    <span className="text-sm font-bold text-[var(--color-brand-gold)]">
+                    <span className="text-sm font-medium text-[var(--text)]">Overall Completion</span>
+                    <span className="text-sm font-bold text-[var(--primary)]">
                       {project.project_status === 'completed' ? '100%' : `${project.completion_percentage ?? 0}%`}
                     </span>
                   </div>
-                  <div className="h-3 rounded-full bg-[var(--color-border)] overflow-hidden">
+                  <div className="h-3 rounded-full bg-[var(--border)] overflow-hidden">
                     <motion.div
-                      className="h-full rounded-full bg-[var(--color-brand-gold)]"
+                      className="h-full rounded-full bg-[var(--primary)]"
                       initial={{ width: 0 }}
                       whileInView={{ width: `${project.project_status === 'completed' ? 100 : (project.completion_percentage ?? 0)}%` }}
                       transition={{ duration: 1.2, ease: 'easeOut' }}
@@ -201,7 +201,7 @@ export function ProjectDetailPage() {
                     />
                   </div>
                   {project.completion_date && (
-                    <p className="mt-3 text-xs text-[var(--color-text-muted)]">
+                    <p className="mt-3 text-xs text-[var(--text-muted)]">
                       Expected completion: {new Date(project.completion_date).toLocaleDateString('en-PK', { month: 'long', year: 'numeric' })}
                     </p>
                   )}
@@ -212,9 +212,9 @@ export function ProjectDetailPage() {
             {/* Timeline */}
             {project.timeline && project.timeline.length > 0 && (
               <section>
-                <h2 className="font-display text-2xl font-bold text-[var(--color-text)] mb-6">Project Timeline</h2>
+                <h2 className="font-display text-2xl font-bold text-[var(--text)] mb-6">Project Timeline</h2>
                 <div className="relative">
-                  <div className="absolute left-4 top-0 bottom-0 w-px bg-[var(--color-border)]" />
+                  <div className="absolute left-4 top-0 bottom-0 w-px bg-[var(--border)]" />
                   <div className="space-y-6">
                     {project.timeline.map((item, i) => (
                       <motion.div
@@ -225,14 +225,14 @@ export function ProjectDetailPage() {
                         transition={{ duration: 0.4, delay: i * 0.1 }}
                         viewport={{ once: true }}
                       >
-                        <div className="absolute left-0 top-1 h-8 w-8 rounded-full border-2 border-[var(--color-brand-gold)] bg-[var(--color-background)] flex items-center justify-center">
-                          <FiCheckCircle className="h-4 w-4 text-[var(--color-brand-gold)]" />
+                        <div className="absolute left-0 top-1 h-8 w-8 rounded-full border-2 border-[var(--primary)] bg-[var(--background)] flex items-center justify-center">
+                          <FiCheckCircle className="h-4 w-4 text-[var(--primary)]" />
                         </div>
-                        <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
-                          <p className="text-xs font-bold text-[var(--color-brand-gold)] mb-0.5 uppercase tracking-wide">{item.date}</p>
-                          <p className="font-semibold text-[var(--color-text)]">{item.title}</p>
+                        <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4">
+                          <p className="text-xs font-bold text-[var(--primary)] mb-0.5 uppercase tracking-wide">{item.date}</p>
+                          <p className="font-semibold text-[var(--text)]">{item.title}</p>
                           {item.description && (
-                            <p className="mt-1 text-sm text-[var(--color-text-muted)]">{item.description}</p>
+                            <p className="mt-1 text-sm text-[var(--text-muted)]">{item.description}</p>
                           )}
                         </div>
                       </motion.div>
@@ -245,10 +245,10 @@ export function ProjectDetailPage() {
             {/* Image Gallery */}
             {project.images.length > 1 && (
               <section>
-                <h2 className="font-display text-2xl font-bold text-[var(--color-text)] mb-4">Gallery</h2>
+                <h2 className="font-display text-2xl font-bold text-[var(--text)] mb-4">Gallery</h2>
                 <div className="grid grid-cols-2 gap-3">
                   {project.images.slice(1).map((img, i) => (
-                    <div key={i} className="rounded-xl overflow-hidden aspect-video border border-[var(--color-border)]">
+                    <div key={i} className="rounded-xl overflow-hidden aspect-video border border-[var(--border)]">
                       <img src={img} alt={`${project.title} ${i + 2}`} className="h-full w-full object-cover" loading="lazy" />
                     </div>
                   ))}
@@ -260,14 +260,14 @@ export function ProjectDetailPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Enquiry Card */}
-            <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sticky top-24">
-              <h3 className="font-display text-xl font-bold text-[var(--color-text)] mb-1">Interested in this project?</h3>
-              <p className="text-sm text-[var(--color-text-muted)] mb-5">Get in touch with our sales team for pricing, availability, and site visits.</p>
+            <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 sticky top-24">
+              <h3 className="font-display text-xl font-bold text-[var(--text)] mb-1">Interested in this project?</h3>
+              <p className="text-sm text-[var(--text-muted)] mb-5">Get in touch with our sales team for pricing, availability, and site visits.</p>
 
               {project.starting_price && (
                 <div className="rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800/30 p-4 mb-5 text-center">
-                  <p className="text-xs text-[var(--color-text-muted)] font-medium mb-0.5">Starting From</p>
-                  <p className="text-2xl font-black text-[var(--color-brand-gold)]">{formatPrice(project.starting_price, 'PKR')}</p>
+                  <p className="text-xs text-[var(--text-muted)] font-medium mb-0.5">Starting From</p>
+                  <p className="text-2xl font-black text-[var(--primary)]">{formatPrice(project.starting_price, 'PKR')}</p>
                 </div>
               )}
 
@@ -289,17 +289,17 @@ export function ProjectDetailPage() {
               </div>
 
               {(project.total_units || project.available_units != null) && (
-                <div className="mt-5 pt-5 border-t border-[var(--color-border)] grid grid-cols-2 gap-4 text-center">
+                <div className="mt-5 pt-5 border-t border-[var(--border)] grid grid-cols-2 gap-4 text-center">
                   {project.total_units && (
                     <div>
-                      <p className="text-lg font-bold text-[var(--color-text)]">{project.total_units}</p>
-                      <p className="text-xs text-[var(--color-text-muted)]">Total Units</p>
+                      <p className="text-lg font-bold text-[var(--text)]">{project.total_units}</p>
+                      <p className="text-xs text-[var(--text-muted)]">Total Units</p>
                     </div>
                   )}
                   {project.available_units != null && (
                     <div>
-                      <p className="text-lg font-bold text-[var(--color-brand-gold)]">{project.available_units}</p>
-                      <p className="text-xs text-[var(--color-text-muted)]">Available</p>
+                      <p className="text-lg font-bold text-[var(--primary)]">{project.available_units}</p>
+                      <p className="text-xs text-[var(--text-muted)]">Available</p>
                     </div>
                   )}
                 </div>
@@ -308,8 +308,8 @@ export function ProjectDetailPage() {
 
             {/* Downloads */}
             {project.downloads && project.downloads.length > 0 && (
-              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
-                <h3 className="font-semibold text-[var(--color-text)] mb-3">Downloads</h3>
+              <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5">
+                <h3 className="font-semibold text-[var(--text)] mb-3">Downloads</h3>
                 <div className="space-y-2">
                   {project.downloads.map((dl, i) => (
                     <a
@@ -317,11 +317,11 @@ export function ProjectDetailPage() {
                       href={dl.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 rounded-xl p-3 border border-[var(--color-border)] hover:border-[var(--color-brand-gold)] hover:bg-amber-50 dark:hover:bg-amber-900/10 transition-colors text-sm font-medium text-[var(--color-text)] group"
+                      className="flex items-center gap-3 rounded-xl p-3 border border-[var(--border)] hover:border-[var(--primary)] hover:bg-amber-50 dark:hover:bg-amber-900/10 transition-colors text-sm font-medium text-[var(--text)] group"
                     >
-                      <FiDownload className="h-4 w-4 text-[var(--color-text-muted)] group-hover:text-[var(--color-brand-gold)] transition-colors flex-shrink-0" />
+                      <FiDownload className="h-4 w-4 text-[var(--text-muted)] group-hover:text-[var(--primary)] transition-colors flex-shrink-0" />
                       {dl.title}
-                      <span className="ml-auto text-xs uppercase text-[var(--color-text-muted)]">{dl.type}</span>
+                      <span className="ml-auto text-xs uppercase text-[var(--text-muted)]">{dl.type}</span>
                     </a>
                   ))}
                 </div>
@@ -333,13 +333,13 @@ export function ProjectDetailPage() {
         {/* Other Projects */}
         {others && others.length > 0 && (
           <section className="mt-20">
-            <h2 className="font-display text-2xl font-bold text-[var(--color-text)] mb-6">Other Projects</h2>
+            <h2 className="font-display text-2xl font-bold text-[var(--text)] mb-6">Other Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {others.map((p) => (
                 <Link
                   key={p.id}
                   to={`/projects/${p.slug}`}
-                  className="group rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden hover:border-[var(--color-brand-gold)] transition-all hover:shadow-md"
+                  className="group rounded-2xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden hover:border-[var(--primary)] transition-all hover:shadow-md"
                 >
                   <div className="aspect-video overflow-hidden bg-[var(--color-brand-black)]">
                     {p.images[0] ? (
@@ -357,11 +357,11 @@ export function ProjectDetailPage() {
                   </div>
                   <div className="p-5">
                     <Badge variant={STATUS_VARIANTS[p.project_status]} className="mb-2">{STATUS_LABELS[p.project_status]}</Badge>
-                    <h3 className="font-display font-bold text-[var(--color-text)] group-hover:text-[var(--color-brand-gold)] transition-colors line-clamp-2">{p.title}</h3>
-                    <p className="text-sm text-[var(--color-text-muted)] mt-1 flex items-center gap-1">
+                    <h3 className="font-display font-bold text-[var(--text)] group-hover:text-[var(--primary)] transition-colors line-clamp-2">{p.title}</h3>
+                    <p className="text-sm text-[var(--text-muted)] mt-1 flex items-center gap-1">
                       <FiMapPin className="h-3.5 w-3.5" /> {p.location}
                     </p>
-                    <div className="mt-3 flex items-center gap-1 text-sm font-semibold text-[var(--color-brand-gold)]">
+                    <div className="mt-3 flex items-center gap-1 text-sm font-semibold text-[var(--primary)]">
                       View Project <FiArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>

@@ -14,7 +14,7 @@ export function FeaturedProperties() {
   if (!isLoading && properties.length === 0) return null
 
   return (
-    <section className="section-padding bg-[var(--color-background)]">
+    <section className="section-padding bg-[var(--background)]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <SectionHeader

@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils/cn'
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn('shimmer rounded-lg bg-[var(--color-surface)]', className)}
+      className={cn('shimmer rounded-lg bg-[var(--surface)]', className)}
       {...props}
     />
   )
@@ -11,7 +11,7 @@ function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>)
 
 function PropertyCardSkeleton() {
   return (
-    <div className="rounded-2xl border border-[var(--color-border)] overflow-hidden bg-[var(--color-surface)]">
+    <div className="rounded-2xl border border-[var(--border)] overflow-hidden bg-[var(--surface)]">
       <Skeleton className="h-56 w-full rounded-none" />
       <div className="p-5 space-y-3">
         <Skeleton className="h-4 w-24" />
@@ -30,7 +30,7 @@ function PropertyCardSkeleton() {
 
 function BlogCardSkeleton() {
   return (
-    <div className="rounded-2xl border border-[var(--color-border)] overflow-hidden bg-[var(--color-surface)]">
+    <div className="rounded-2xl border border-[var(--border)] overflow-hidden bg-[var(--surface)]">
       <Skeleton className="h-48 w-full rounded-none" />
       <div className="p-5 space-y-3">
         <Skeleton className="h-3 w-20" />

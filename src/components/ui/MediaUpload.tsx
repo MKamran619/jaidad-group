@@ -83,11 +83,11 @@ export function MediaUpload({
   return (
     <div className="space-y-1.5">
       {label && (
-        <label className="block text-xs font-medium text-[var(--color-text-muted)]">{label}</label>
+        <label className="block text-xs font-medium text-[var(--text-muted)]">{label}</label>
       )}
 
       {value ? (
-        <div className="relative group rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="relative group rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--surface)]">
           {!previewFailed ? (
             <img
               key={value}
@@ -99,12 +99,12 @@ export function MediaUpload({
           ) : (
             <div
               className={cn(
-                'flex items-center gap-2 p-4 bg-[var(--color-background)]',
+                'flex items-center gap-2 p-4 bg-[var(--background)]',
                 aspectRatio === 'square' ? 'aspect-square' : 'min-h-[72px]'
               )}
             >
-              <FiLink className="h-4 w-4 text-[var(--color-brand-gold)] flex-shrink-0" />
-              <span className="text-xs text-[var(--color-text)] break-all line-clamp-2">{value}</span>
+              <FiLink className="h-4 w-4 text-[var(--primary)] flex-shrink-0" />
+              <span className="text-xs text-[var(--text)] break-all line-clamp-2">{value}</span>
             </div>
           )}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100">
@@ -129,8 +129,8 @@ export function MediaUpload({
           className={cn(
             'relative rounded-xl border-2 border-dashed transition-all duration-200 flex flex-col items-center justify-center gap-2 cursor-pointer min-h-[100px]',
             isDragOver
-              ? 'border-[var(--color-brand-gold)] bg-[var(--color-brand-gold)]/5'
-              : 'border-[var(--color-border)] hover:border-[var(--color-brand-gold)]/60 hover:bg-[var(--color-surface)]'
+              ? 'border-[var(--primary)] bg-[var(--primary)]/5'
+              : 'border-[var(--border)] hover:border-[var(--primary)]/60 hover:bg-[var(--surface)]'
           )}
           onClick={() => !uploading && inputRef.current?.click()}
           onDrop={handleDrop}
@@ -139,18 +139,18 @@ export function MediaUpload({
         >
           {uploading ? (
             <>
-              <div className="h-7 w-7 border-2 border-[var(--color-brand-gold)] border-t-transparent rounded-full animate-spin" />
-              <p className="text-xs text-[var(--color-text-muted)]">Uploading...</p>
+              <div className="h-7 w-7 border-2 border-[var(--primary)] border-t-transparent rounded-full animate-spin" />
+              <p className="text-xs text-[var(--text-muted)]">Uploading...</p>
             </>
           ) : (
             <>
-              <FiUpload className="h-6 w-6 text-[var(--color-text-muted)]" />
-              <p className="text-xs text-[var(--color-text-muted)] text-center px-6 leading-relaxed">
+              <FiUpload className="h-6 w-6 text-[var(--text-muted)]" />
+              <p className="text-xs text-[var(--text-muted)] text-center px-6 leading-relaxed">
                 Click or drag & drop to upload
               </p>
               <button
                 type="button"
-                className="text-xs text-[var(--color-brand-gold)] hover:underline"
+                className="text-xs text-[var(--primary)] hover:underline"
                 onClick={(e) => { e.stopPropagation(); setShowUrlInput(!showUrlInput) }}
               >
                 or paste a URL
@@ -169,20 +169,20 @@ export function MediaUpload({
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
             placeholder="https://..."
-            className="flex-1 h-9 px-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]"
+            className="flex-1 h-9 px-3 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             onKeyDown={(e) => e.key === 'Enter' && confirmUrl()}
           />
           <button
             type="button"
             onClick={confirmUrl}
-            className="px-3 h-9 bg-[var(--color-brand-gold)] text-white text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity"
+            className="px-3 h-9 bg-[var(--primary)] text-white text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity"
           >
             Set
           </button>
           <button
             type="button"
             onClick={() => { setShowUrlInput(false); setUrlInput('') }}
-            className="px-2 h-9 rounded-lg border border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface)] transition-colors"
+            className="px-2 h-9 rounded-lg border border-[var(--border)] text-[var(--text-muted)] hover:bg-[var(--surface)] transition-colors"
           >
             <FiX className="h-4 w-4" />
           </button>

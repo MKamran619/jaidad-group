@@ -146,8 +146,8 @@ export function AdminProjectsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-2xl font-bold text-[var(--color-text)]">Projects</h1>
-          <p className="text-sm text-[var(--color-text-muted)] mt-1">{items.length} total projects</p>
+          <h1 className="font-display text-2xl font-bold text-[var(--text)]">Projects</h1>
+          <p className="text-sm text-[var(--text-muted)] mt-1">{items.length} total projects</p>
         </div>
         <Button variant="primary" size="sm" onClick={openAdd}>
           <FiPlus className="h-4 w-4" /> New Project
@@ -156,38 +156,38 @@ export function AdminProjectsPage() {
 
       {/* Table */}
       {loading ? (
-        <div className="text-center py-12 text-[var(--color-text-muted)]">Loading...</div>
+        <div className="text-center py-12 text-[var(--text-muted)]">Loading...</div>
       ) : (
-        <div className="rounded-2xl border border-[var(--color-border)] overflow-hidden">
+        <div className="rounded-2xl border border-[var(--border)] overflow-hidden">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-                <th className="px-4 py-3 text-left font-semibold text-[var(--color-text-muted)]">Project</th>
-                <th className="px-4 py-3 text-left font-semibold text-[var(--color-text-muted)] hidden md:table-cell">Location</th>
-                <th className="px-4 py-3 text-left font-semibold text-[var(--color-text-muted)]">Status</th>
-                <th className="px-4 py-3 text-left font-semibold text-[var(--color-text-muted)] hidden lg:table-cell">Progress</th>
-                <th className="px-4 py-3 text-right font-semibold text-[var(--color-text-muted)]">Actions</th>
+              <tr className="border-b border-[var(--border)] bg-[var(--surface)]">
+                <th className="px-4 py-3 text-left font-semibold text-[var(--text-muted)]">Project</th>
+                <th className="px-4 py-3 text-left font-semibold text-[var(--text-muted)] hidden md:table-cell">Location</th>
+                <th className="px-4 py-3 text-left font-semibold text-[var(--text-muted)]">Status</th>
+                <th className="px-4 py-3 text-left font-semibold text-[var(--text-muted)] hidden lg:table-cell">Progress</th>
+                <th className="px-4 py-3 text-right font-semibold text-[var(--text-muted)]">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-border)] bg-[var(--color-background)]">
+            <tbody className="divide-y divide-[var(--border)] bg-[var(--background)]">
               {items.map((item) => (
-                <tr key={item.id} className="hover:bg-[var(--color-surface)] transition-colors">
+                <tr key={item.id} className="hover:bg-[var(--surface)] transition-colors">
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-3">
                       {item.images[0] && (
                         <img src={item.images[0]} alt="" className="h-10 w-16 rounded-lg object-cover flex-shrink-0" />
                       )}
                       <div className="min-w-0">
-                        <p className="font-medium text-[var(--color-text)] truncate max-w-[180px]">{item.title}</p>
+                        <p className="font-medium text-[var(--text)] truncate max-w-[180px]">{item.title}</p>
                         {item.starting_price && (
-                          <p className="text-xs text-[var(--color-brand-gold)]">
+                          <p className="text-xs text-[var(--primary)]">
                             From PKR {(item.starting_price / 1000000).toFixed(0)}M
                           </p>
                         )}
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-[var(--color-text-muted)] hidden md:table-cell">
+                  <td className="px-4 py-3 text-[var(--text-muted)] hidden md:table-cell">
                     <span className="flex items-center gap-1"><FiMapPin className="h-3.5 w-3.5" />{item.location}</span>
                   </td>
                   <td className="px-4 py-3">
@@ -197,13 +197,13 @@ export function AdminProjectsPage() {
                   </td>
                   <td className="px-4 py-3 hidden lg:table-cell">
                     <div className="flex items-center gap-2">
-                      <div className="h-1.5 w-24 rounded-full bg-[var(--color-border)]">
+                      <div className="h-1.5 w-24 rounded-full bg-[var(--border)]">
                         <div
-                          className="h-full rounded-full bg-[var(--color-brand-gold)]"
+                          className="h-full rounded-full bg-[var(--primary)]"
                           style={{ width: `${item.project_status === 'completed' ? 100 : (item.completion_percentage ?? 0)}%` }}
                         />
                       </div>
-                      <span className="text-xs text-[var(--color-text-muted)]">
+                      <span className="text-xs text-[var(--text-muted)]">
                         {item.project_status === 'completed' ? '100' : (item.completion_percentage ?? 0)}%
                       </span>
                     </div>
@@ -212,13 +212,13 @@ export function AdminProjectsPage() {
                     <div className="flex items-center justify-end gap-1">
                       <button
                         onClick={() => openEdit(item)}
-                        className="p-2 rounded-lg hover:bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-brand-gold)] transition-colors"
+                        className="p-2 rounded-lg hover:bg-[var(--surface)] text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors"
                       >
                         <FiEdit2 className="h-4 w-4" />
                       </button>
                       <button
                         onClick={() => setDeleteId(item.id)}
-                        className="p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/10 text-[var(--color-text-muted)] hover:text-red-500 transition-colors"
+                        className="p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/10 text-[var(--text-muted)] hover:text-red-500 transition-colors"
                       >
                         <FiTrash2 className="h-4 w-4" />
                       </button>
@@ -229,7 +229,7 @@ export function AdminProjectsPage() {
             </tbody>
           </table>
           {items.length === 0 && (
-            <div className="text-center py-12 text-[var(--color-text-muted)]">No projects yet. Click "New Project" to add one.</div>
+            <div className="text-center py-12 text-[var(--text-muted)]">No projects yet. Click "New Project" to add one.</div>
           )}
         </div>
       )}
@@ -238,16 +238,16 @@ export function AdminProjectsPage() {
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/60 p-4 overflow-y-auto" onClick={() => setShowForm(false)}>
           <div
-            className="bg-[var(--color-surface)] rounded-2xl w-full max-w-2xl shadow-2xl my-8"
+            className="bg-[var(--surface)] rounded-2xl w-full max-w-2xl shadow-2xl my-8"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Sticky Header */}
-            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-4 rounded-t-2xl">
-              <h2 className="font-display text-lg font-bold text-[var(--color-text)]">
+            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-[var(--border)] bg-[var(--surface)] px-6 py-4 rounded-t-2xl">
+              <h2 className="font-display text-lg font-bold text-[var(--text)]">
                 {editItem ? 'Edit Project' : 'New Project'}
               </h2>
               <button onClick={() => setShowForm(false)}>
-                <FiX className="h-5 w-5 text-[var(--color-text-muted)]" />
+                <FiX className="h-5 w-5 text-[var(--text-muted)]" />
               </button>
             </div>
 
@@ -261,11 +261,11 @@ export function AdminProjectsPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-muted)] mb-1.5">Status *</label>
+                  <label className="block text-xs font-medium text-[var(--text-muted)] mb-1.5">Status *</label>
                   <select
                     value={form.project_status}
                     onChange={(e) => f('project_status', e.target.value)}
-                    className="w-full h-11 px-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]"
+                    className="w-full h-11 px-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                   >
                     <option value="upcoming">Upcoming</option>
                     <option value="ongoing">Ongoing</option>
@@ -319,18 +319,18 @@ export function AdminProjectsPage() {
                     type="checkbox"
                     checked={form.is_featured}
                     onChange={(e) => f('is_featured', e.target.checked)}
-                    className="h-4 w-4 rounded accent-[var(--color-brand-gold)]"
+                    className="h-4 w-4 rounded accent-[var(--primary)]"
                   />
-                  <span className="text-sm text-[var(--color-text)]">Featured</span>
+                  <span className="text-sm text-[var(--text)]">Featured</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={form.is_active}
                     onChange={(e) => f('is_active', e.target.checked)}
-                    className="h-4 w-4 rounded accent-[var(--color-brand-gold)]"
+                    className="h-4 w-4 rounded accent-[var(--primary)]"
                   />
-                  <span className="text-sm text-[var(--color-text)]">Active</span>
+                  <span className="text-sm text-[var(--text)]">Active</span>
                 </label>
               </div>
 
@@ -348,9 +348,9 @@ export function AdminProjectsPage() {
       {/* Delete Confirm */}
       {deleteId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={() => setDeleteId(null)}>
-          <div className="bg-[var(--color-surface)] rounded-2xl p-6 w-full max-w-sm shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <h3 className="font-display text-lg font-bold text-[var(--color-text)] mb-2">Delete Project?</h3>
-            <p className="text-sm text-[var(--color-text-muted)] mb-5">This will permanently remove the project and all its data.</p>
+          <div className="bg-[var(--surface)] rounded-2xl p-6 w-full max-w-sm shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <h3 className="font-display text-lg font-bold text-[var(--text)] mb-2">Delete Project?</h3>
+            <p className="text-sm text-[var(--text-muted)] mb-5">This will permanently remove the project and all its data.</p>
             <div className="flex gap-3">
               <Button variant="outline" className="flex-1" onClick={() => setDeleteId(null)}>Cancel</Button>
               <Button variant="destructive" className="flex-1" onClick={handleDelete}>Delete</Button>

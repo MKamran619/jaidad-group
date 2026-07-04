@@ -3,22 +3,22 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-semibold text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-gold)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-semibold text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none',
   {
     variants: {
       variant: {
         primary:
-          'bg-[var(--color-brand-gold)] text-white hover:bg-[var(--color-brand-gold-dark)] shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0',
+          'btn-shine bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)] shadow-[0_10px_40px_var(--shadow-color)] hover:shadow-[0_20px_50px_var(--shadow-color)] hover:-translate-y-0.5 active:translate-y-0',
         secondary:
-          'bg-[var(--color-brand-black)] text-white hover:bg-[var(--color-brand-charcoal)] shadow-lg hover:shadow-xl hover:-translate-y-0.5',
+          'btn-shine bg-[var(--color-brand-black)] text-white hover:bg-[var(--color-brand-charcoal)] shadow-lg hover:shadow-xl hover:-translate-y-0.5',
         outline:
-          'border-2 border-[var(--color-brand-gold)] text-[var(--color-brand-gold)] bg-transparent hover:bg-[var(--color-brand-gold)] hover:text-white',
+          'btn-shine border-2 border-[var(--primary)] text-[var(--primary)] bg-transparent backdrop-blur-sm hover:bg-[var(--surface)] hover:border-[var(--primary-light)] hover:text-[var(--primary-light)] hover:-translate-y-0.5',
         ghost:
-          'text-[var(--color-text)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]',
+          'text-[var(--text)] hover:bg-[var(--surface)] hover:text-[var(--text)]',
         destructive:
           'bg-red-500 text-white hover:bg-red-600 shadow-lg',
         link:
-          'text-[var(--color-brand-gold)] underline-offset-4 hover:underline p-0 h-auto',
+          'text-[var(--primary)] underline-offset-4 hover:underline p-0 h-auto',
         glass:
           'glass text-white hover:bg-white/20 border-white/20',
       },

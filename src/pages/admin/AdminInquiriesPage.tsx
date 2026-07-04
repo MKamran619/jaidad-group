@@ -71,8 +71,8 @@ export function AdminInquiriesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-2xl font-bold text-[var(--color-text)]">Inquiries</h1>
-        <p className="text-sm text-[var(--color-text-muted)] mt-1">{inquiries.length} total inquiries</p>
+        <h1 className="font-display text-2xl font-bold text-[var(--text)]">Inquiries</h1>
+        <p className="text-sm text-[var(--text-muted)] mt-1">{inquiries.length} total inquiries</p>
       </div>
 
       {/* Filters */}
@@ -88,7 +88,7 @@ export function AdminInquiriesPage() {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="h-10 px-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]"
+          className="h-10 px-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
         >
           <option value="all">All Statuses</option>
           {STATUS_OPTIONS.map((s) => (
@@ -98,41 +98,41 @@ export function AdminInquiriesPage() {
       </div>
 
       {/* Table */}
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden">
+      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="border-b border-[var(--color-border)] bg-[var(--color-background)]">
+            <thead className="border-b border-[var(--border)] bg-[var(--background)]">
               <tr>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Name</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Subject</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Type</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Status</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Date</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Name</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Subject</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Type</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Status</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Date</th>
                 <th className="px-4 py-3" />
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-border)]">
+            <tbody className="divide-y divide-[var(--border)]">
               {loading ? (
                 <tr>
-                  <td colSpan={6} className="text-center py-12 text-[var(--color-text-muted)]">Loading...</td>
+                  <td colSpan={6} className="text-center py-12 text-[var(--text-muted)]">Loading...</td>
                 </tr>
               ) : filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="text-center py-12 text-[var(--color-text-muted)]">No inquiries found</td>
+                  <td colSpan={6} className="text-center py-12 text-[var(--text-muted)]">No inquiries found</td>
                 </tr>
               ) : filtered.map((inq) => (
-                <tr key={inq.id} className="hover:bg-[var(--color-background)] transition-colors">
+                <tr key={inq.id} className="hover:bg-[var(--background)] transition-colors">
                   <td className="px-4 py-3">
-                    <p className="font-medium text-[var(--color-text)]">{inq.name}</p>
-                    <p className="text-xs text-[var(--color-text-muted)] flex items-center gap-1 mt-0.5">
+                    <p className="font-medium text-[var(--text)]">{inq.name}</p>
+                    <p className="text-xs text-[var(--text-muted)] flex items-center gap-1 mt-0.5">
                       <FiMail className="h-3 w-3" /> {inq.email}
                     </p>
-                    <p className="text-xs text-[var(--color-text-muted)] flex items-center gap-1">
+                    <p className="text-xs text-[var(--text-muted)] flex items-center gap-1">
                       <FiPhone className="h-3 w-3" /> {inq.phone}
                     </p>
                   </td>
                   <td className="px-4 py-3 max-w-[200px]">
-                    <p className="text-[var(--color-text)] truncate">{inq.subject}</p>
+                    <p className="text-[var(--text)] truncate">{inq.subject}</p>
                   </td>
                   <td className="px-4 py-3">
                     <Badge variant="secondary" className="capitalize">{inq.inquiry_type}</Badge>
@@ -154,7 +154,7 @@ export function AdminInquiriesPage() {
                       ))}
                     </select>
                   </td>
-                  <td className="px-4 py-3 text-xs text-[var(--color-text-muted)] whitespace-nowrap">
+                  <td className="px-4 py-3 text-xs text-[var(--text-muted)] whitespace-nowrap">
                     {formatDate(inq.created_at)}
                   </td>
                   <td className="px-4 py-3">
@@ -178,50 +178,50 @@ export function AdminInquiriesPage() {
       {viewItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={() => setViewItem(null)}>
           <div
-            className="bg-[var(--color-surface)] rounded-2xl w-full max-w-lg shadow-2xl"
+            className="bg-[var(--surface)] rounded-2xl w-full max-w-lg shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-5 border-b border-[var(--color-border)] flex items-center justify-between">
-              <h2 className="font-display text-lg font-bold text-[var(--color-text)]">Inquiry Details</h2>
-              <button onClick={() => setViewItem(null)} className="text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
+            <div className="p-5 border-b border-[var(--border)] flex items-center justify-between">
+              <h2 className="font-display text-lg font-bold text-[var(--text)]">Inquiry Details</h2>
+              <button onClick={() => setViewItem(null)} className="text-[var(--text-muted)] hover:text-[var(--text)]">
                 <FiX className="h-5 w-5" />
               </button>
             </div>
             <div className="p-5 space-y-4">
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <p className="text-xs text-[var(--color-text-muted)] mb-1">Name</p>
-                  <p className="font-semibold text-[var(--color-text)]">{viewItem.name}</p>
+                  <p className="text-xs text-[var(--text-muted)] mb-1">Name</p>
+                  <p className="font-semibold text-[var(--text)]">{viewItem.name}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-[var(--color-text-muted)] mb-1">Phone</p>
-                  <p className="font-semibold text-[var(--color-text)]">{viewItem.phone}</p>
+                  <p className="text-xs text-[var(--text-muted)] mb-1">Phone</p>
+                  <p className="font-semibold text-[var(--text)]">{viewItem.phone}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-[var(--color-text-muted)] mb-1">Email</p>
-                  <p className="font-semibold text-[var(--color-text)]">{viewItem.email}</p>
+                  <p className="text-xs text-[var(--text-muted)] mb-1">Email</p>
+                  <p className="font-semibold text-[var(--text)]">{viewItem.email}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-[var(--color-text-muted)] mb-1">Type</p>
+                  <p className="text-xs text-[var(--text-muted)] mb-1">Type</p>
                   <Badge variant="secondary" className="capitalize">{viewItem.inquiry_type}</Badge>
                 </div>
                 <div className="col-span-2">
-                  <p className="text-xs text-[var(--color-text-muted)] mb-1">Subject</p>
-                  <p className="font-semibold text-[var(--color-text)]">{viewItem.subject}</p>
+                  <p className="text-xs text-[var(--text-muted)] mb-1">Subject</p>
+                  <p className="font-semibold text-[var(--text)]">{viewItem.subject}</p>
                 </div>
                 <div className="col-span-2">
-                  <p className="text-xs text-[var(--color-text-muted)] mb-1">Message</p>
-                  <p className="text-[var(--color-text)] leading-relaxed text-sm bg-[var(--color-background)] rounded-xl p-3">
+                  <p className="text-xs text-[var(--text-muted)] mb-1">Message</p>
+                  <p className="text-[var(--text)] leading-relaxed text-sm bg-[var(--background)] rounded-xl p-3">
                     {viewItem.message}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 pt-2">
-                <p className="text-sm text-[var(--color-text-muted)]">Update Status:</p>
+                <p className="text-sm text-[var(--text-muted)]">Update Status:</p>
                 <select
                   value={viewItem.status}
                   onChange={(e) => updateStatus(viewItem.id, e.target.value)}
-                  className="text-sm px-3 py-1.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text)] focus:outline-none"
+                  className="text-sm px-3 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--text)] focus:outline-none"
                 >
                   {STATUS_OPTIONS.map((s) => (
                     <option key={s} value={s}>{s.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase())}</option>

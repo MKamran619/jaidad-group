@@ -57,11 +57,11 @@ export function BlogDetailPage() {
     return (
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto space-y-6">
-          <div className="h-10 w-3/4 rounded shimmer bg-[var(--color-surface)]" />
-          <div className="h-72 rounded-2xl shimmer bg-[var(--color-surface)]" />
+          <div className="h-10 w-3/4 rounded shimmer bg-[var(--surface)]" />
+          <div className="h-72 rounded-2xl shimmer bg-[var(--surface)]" />
           <div className="space-y-3">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-4 rounded shimmer bg-[var(--color-surface)]" style={{ width: `${85 + (i % 3) * 5}%` }} />
+              <div key={i} className="h-4 rounded shimmer bg-[var(--surface)]" style={{ width: `${85 + (i % 3) * 5}%` }} />
             ))}
           </div>
         </div>
@@ -72,8 +72,8 @@ export function BlogDetailPage() {
   if (!blog) {
     return (
       <div className="container mx-auto px-4 py-32 text-center">
-        <p className="text-4xl font-black text-[var(--color-text)] mb-4">Article Not Found</p>
-        <p className="text-[var(--color-text-muted)] mb-8">This article may have been removed or the link is incorrect.</p>
+        <p className="text-4xl font-black text-[var(--text)] mb-4">Article Not Found</p>
+        <p className="text-[var(--text-muted)] mb-8">This article may have been removed or the link is incorrect.</p>
         <Link to="/blog" className={buttonVariants({ variant: 'primary', size: 'md' })}>Back to Blog</Link>
       </div>
     )
@@ -124,7 +124,7 @@ export function BlogDetailPage() {
       </div>
 
       {/* Content */}
-      <div className="bg-[var(--color-background)] section-padding">
+      <div className="bg-[var(--background)] section-padding">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <Link to="/blog" className={cn(buttonVariants({ variant: 'outline', size: 'sm' }), 'mb-8 inline-flex')}>
@@ -133,7 +133,7 @@ export function BlogDetailPage() {
 
             {/* Article */}
             <article className="mb-12">
-              <p className="text-xl text-[var(--color-text-muted)] leading-relaxed mb-8 font-medium border-l-4 border-[var(--color-brand-gold)] pl-5">
+              <p className="text-xl text-[var(--text-muted)] leading-relaxed mb-8 font-medium border-l-4 border-[var(--primary)] pl-5">
                 {blog.excerpt}
               </p>
               <div
@@ -145,7 +145,7 @@ export function BlogDetailPage() {
             {/* Tags */}
             {blog.tags?.length > 0 && (
               <div className="flex items-center gap-2 flex-wrap mb-8">
-                <FiTag className="h-4 w-4 text-[var(--color-text-muted)]" />
+                <FiTag className="h-4 w-4 text-[var(--text-muted)]" />
                 {blog.tags.map((tag) => (
                   <Badge key={tag} variant="secondary">#{tag}</Badge>
                 ))}
@@ -153,8 +153,8 @@ export function BlogDetailPage() {
             )}
 
             {/* Share */}
-            <div className="border-t border-b border-[var(--color-border)] py-6 mb-12">
-              <p className="text-sm font-semibold text-[var(--color-text)] mb-3 flex items-center gap-2">
+            <div className="border-t border-b border-[var(--border)] py-6 mb-12">
+              <p className="text-sm font-semibold text-[var(--text)] mb-3 flex items-center gap-2">
                 <FiShare2 className="h-4 w-4" /> Share this article
               </p>
               <div className="flex flex-wrap gap-3">
@@ -185,15 +185,15 @@ export function BlogDetailPage() {
             {/* Related */}
             {related && related.length > 0 && (
               <div>
-                <h2 className="font-display text-2xl font-bold text-[var(--color-text)] mb-6">Related Articles</h2>
+                <h2 className="font-display text-2xl font-bold text-[var(--text)] mb-6">Related Articles</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {related.map((post) => (
                     <Link
                       key={post.id}
                       to={`/blog/${post.slug}`}
-                      className="group block rounded-2xl overflow-hidden border border-[var(--color-border)] hover:shadow-md transition-all"
+                      className="group block rounded-2xl overflow-hidden border border-[var(--border)] hover:shadow-md transition-all"
                     >
-                      <div className="h-40 overflow-hidden bg-[var(--color-surface)]">
+                      <div className="h-40 overflow-hidden bg-[var(--surface)]">
                         {post.cover_image ? (
                           <img
                             src={post.cover_image}
@@ -203,13 +203,13 @@ export function BlogDetailPage() {
                           />
                         ) : (
                           <div className="h-full w-full flex items-center justify-center">
-                            <span className="text-[var(--color-text-muted)] text-xs">No image</span>
+                            <span className="text-[var(--text-muted)] text-xs">No image</span>
                           </div>
                         )}
                       </div>
                       <div className="p-4">
                         <Badge variant="default" className="mb-2">{post.category}</Badge>
-                        <h3 className="font-display font-bold text-[var(--color-text)] text-sm line-clamp-2 group-hover:text-[var(--color-brand-gold)] transition-colors">
+                        <h3 className="font-display font-bold text-[var(--text)] text-sm line-clamp-2 group-hover:text-[var(--primary)] transition-colors">
                           {post.title}
                         </h3>
                       </div>

@@ -54,8 +54,8 @@ export function StatsSection() {
       <div className="absolute inset-0 opacity-5"
         style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}
       />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-full max-w-2xl bg-gradient-to-r from-transparent via-[var(--color-brand-gold)] to-transparent" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-full max-w-2xl bg-gradient-to-r from-transparent via-[var(--color-brand-gold)] to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-full max-w-2xl bg-gradient-to-r from-transparent via-[var(--primary)] to-transparent" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-full max-w-2xl bg-gradient-to-r from-transparent via-[var(--primary)] to-transparent" />
 
       <div className="container relative mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -77,7 +77,7 @@ export function StatsSection() {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="flex flex-col items-center text-center gap-1"
                   >
-                    <p className="font-display text-3xl md:text-4xl font-black text-[var(--color-brand-gold)]">
+                    <p className="font-display text-3xl md:text-4xl font-black text-[var(--primary)]">
                       <AnimatedCounter value={parsed.value} prefix={parsed.prefix} suffix={parsed.suffix} />
                     </p>
                     <p className="text-xs text-white/50 uppercase tracking-widest">{stat.label}</p>

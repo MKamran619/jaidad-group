@@ -14,7 +14,7 @@ export function Layout() {
   const location = useLocation()
 
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--color-background)]">
+    <div className="flex min-h-screen flex-col bg-[var(--background)]">
       <Header />
       <AnimatePresence mode="wait">
         <motion.main

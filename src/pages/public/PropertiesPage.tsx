@@ -73,7 +73,7 @@ export function PropertiesPage() {
       <div className="bg-[var(--color-brand-black)] py-16">
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-brand-gold)] mb-3">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)] mb-3">
               Find Your Property
             </p>
             <h1 className="font-display text-3xl md:text-5xl font-black text-white mb-4">
@@ -88,7 +88,7 @@ export function PropertiesPage() {
 
       <div className="container mx-auto px-4 py-10">
         {/* Filters */}
-        <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] p-5 mb-8">
+        <div className="bg-[var(--surface)] rounded-2xl border border-[var(--border)] p-5 mb-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
             <Input
               placeholder="Search properties..."
@@ -133,19 +133,19 @@ export function PropertiesPage() {
 
         {/* Toolbar */}
         <div className="flex items-center justify-between mb-6">
-          <p className="text-sm text-[var(--color-text-muted)]">
-            <span className="font-semibold text-[var(--color-text)]">{properties.length}</span> properties found
+          <p className="text-sm text-[var(--text-muted)]">
+            <span className="font-semibold text-[var(--text)]">{properties.length}</span> properties found
           </p>
           <div className="flex gap-1">
             <button
               onClick={() => setView('grid')}
-              className={`h-9 w-9 rounded-lg flex items-center justify-center transition-colors ${view === 'grid' ? 'bg-[var(--color-brand-gold)] text-white' : 'bg-[var(--color-surface)] text-[var(--color-text-muted)]'}`}
+              className={`h-9 w-9 rounded-lg flex items-center justify-center transition-colors ${view === 'grid' ? 'bg-[var(--primary)] text-white' : 'bg-[var(--surface)] text-[var(--text-muted)]'}`}
             >
               <FiGrid className="h-4 w-4" />
             </button>
             <button
               onClick={() => setView('list')}
-              className={`h-9 w-9 rounded-lg flex items-center justify-center transition-colors ${view === 'list' ? 'bg-[var(--color-brand-gold)] text-white' : 'bg-[var(--color-surface)] text-[var(--color-text-muted)]'}`}
+              className={`h-9 w-9 rounded-lg flex items-center justify-center transition-colors ${view === 'list' ? 'bg-[var(--primary)] text-white' : 'bg-[var(--surface)] text-[var(--text-muted)]'}`}
             >
               <FiList className="h-4 w-4" />
             </button>
@@ -155,7 +155,7 @@ export function PropertiesPage() {
         {/* Grid */}
         {!isLoading && properties.length === 0 ? (
           <div className="text-center py-24">
-            <p className="text-[var(--color-text-muted)] text-lg mb-4">No properties found matching your search.</p>
+            <p className="text-[var(--text-muted)] text-lg mb-4">No properties found matching your search.</p>
             {hasFilters && (
               <Button variant="outline" size="md" onClick={clearFilters}>Clear Filters</Button>
             )}

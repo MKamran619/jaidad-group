@@ -125,12 +125,12 @@ export function AdminSettingsPage() {
   return (
     <div className="space-y-6 max-w-3xl">
       <div>
-        <h1 className="font-display text-2xl font-bold text-[var(--color-text)]">Site Settings</h1>
-        <p className="text-sm text-[var(--color-text-muted)] mt-1">Configure your website content and appearance</p>
+        <h1 className="font-display text-2xl font-bold text-[var(--text)]">Site Settings</h1>
+        <p className="text-sm text-[var(--text-muted)] mt-1">Configure your website content and appearance</p>
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-[var(--color-border)] overflow-x-auto scrollbar-none">
+      <div className="flex gap-1 border-b border-[var(--border)] overflow-x-auto scrollbar-none">
         {TABS.map((tab) => (
           <button
             key={tab.key}
@@ -138,8 +138,8 @@ export function AdminSettingsPage() {
             className={cn(
               'px-4 py-2.5 text-sm font-medium border-b-2 transition-colors whitespace-nowrap flex-shrink-0 -mb-px',
               activeTab === tab.key
-                ? 'border-[var(--color-brand-gold)] text-[var(--color-brand-gold)]'
-                : 'border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
+                ? 'border-[var(--primary)] text-[var(--primary)]'
+                : 'border-transparent text-[var(--text-muted)] hover:text-[var(--text)]'
             )}
           >
             {tab.label}
@@ -149,9 +149,9 @@ export function AdminSettingsPage() {
 
       {/* Fields */}
       {loading ? (
-        <div className="text-center py-12 text-[var(--color-text-muted)]">Loading settings...</div>
+        <div className="text-center py-12 text-[var(--text-muted)]">Loading settings...</div>
       ) : (
-        <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-5">
+        <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 space-y-5">
           {fields.map((field) => (
             <div key={field.field}>
               {field.multi ? (
@@ -163,13 +163,13 @@ export function AdminSettingsPage() {
                 />
               ) : field.type === 'color' ? (
                 <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-muted)] mb-1.5">{field.label}</label>
+                  <label className="block text-xs font-medium text-[var(--text-muted)] mb-1.5">{field.label}</label>
                   <div className="flex items-center gap-3">
                     <input
                       type="color"
                       value={settings[field.field] ?? '#F5A623'}
                       onChange={(e) => update(field.field, e.target.value)}
-                      className="h-10 w-20 rounded-lg border border-[var(--color-border)] cursor-pointer"
+                      className="h-10 w-20 rounded-lg border border-[var(--border)] cursor-pointer"
                     />
                     <Input
                       value={settings[field.field] ?? ''}

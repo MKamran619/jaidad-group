@@ -6,14 +6,14 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: 'border-transparent bg-[var(--color-brand-gold)] text-white',
-        secondary: 'border-transparent bg-[var(--color-surface)] text-[var(--color-text)]',
-        outline: 'border-[var(--color-border)] text-[var(--color-text)]',
+        default: 'border-transparent bg-[var(--primary)] text-white',
+        secondary: 'border-transparent bg-[var(--surface)] text-[var(--text)]',
+        outline: 'border-[var(--border)] text-[var(--text)]',
         success: 'border-transparent bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400',
         warning: 'border-transparent bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400',
         danger: 'border-transparent bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400',
         info: 'border-transparent bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',
-        gold: 'border-[var(--color-brand-gold)] text-[var(--color-brand-gold)] bg-transparent',
+        gold: 'border-[var(--primary)] text-[var(--primary)] bg-transparent',
       },
     },
     defaultVariants: { variant: 'default' },

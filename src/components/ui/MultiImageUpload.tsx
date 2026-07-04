@@ -50,14 +50,14 @@ export function MultiImageUpload({ values, onChange, folder, label, max = 12 }: 
   return (
     <div className="space-y-2">
       {label && (
-        <label className="block text-xs font-medium text-[var(--color-text-muted)]">{label}</label>
+        <label className="block text-xs font-medium text-[var(--text-muted)]">{label}</label>
       )}
 
       <div className="flex flex-wrap gap-2">
         {values.map((url, i) => (
           <div
             key={`${i}-${url.slice(-16)}`}
-            className="relative group h-20 w-20 rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] flex-shrink-0"
+            className="relative group h-20 w-20 rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] flex-shrink-0"
           >
             <img
               src={url}
@@ -73,7 +73,7 @@ export function MultiImageUpload({ values, onChange, folder, label, max = 12 }: 
               <FiX className="h-2.5 w-2.5" />
             </button>
             {i === 0 && (
-              <span className="absolute bottom-0 left-0 right-0 text-center bg-[var(--color-brand-gold)] text-white text-[8px] font-bold py-0.5 leading-tight uppercase">
+              <span className="absolute bottom-0 left-0 right-0 text-center bg-[var(--primary)] text-white text-[8px] font-bold py-0.5 leading-tight uppercase">
                 Cover
               </span>
             )}
@@ -86,14 +86,14 @@ export function MultiImageUpload({ values, onChange, folder, label, max = 12 }: 
             disabled={uploading}
             onClick={() => inputRef.current?.click()}
             className={cn(
-              'h-20 w-20 rounded-xl border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all flex-shrink-0 text-[var(--color-text-muted)]',
+              'h-20 w-20 rounded-xl border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all flex-shrink-0 text-[var(--text-muted)]',
               uploading
-                ? 'border-[var(--color-brand-gold)]/50 bg-[var(--color-brand-gold)]/5 cursor-wait'
-                : 'border-[var(--color-border)] hover:border-[var(--color-brand-gold)]/60 hover:bg-[var(--color-surface)] cursor-pointer'
+                ? 'border-[var(--primary)]/50 bg-[var(--primary)]/5 cursor-wait'
+                : 'border-[var(--border)] hover:border-[var(--primary)]/60 hover:bg-[var(--surface)] cursor-pointer'
             )}
           >
             {uploading ? (
-              <div className="h-5 w-5 border-2 border-[var(--color-brand-gold)] border-t-transparent rounded-full animate-spin" />
+              <div className="h-5 w-5 border-2 border-[var(--primary)] border-t-transparent rounded-full animate-spin" />
             ) : (
               <>
                 <FiPlus className="h-4 w-4" />
@@ -105,7 +105,7 @@ export function MultiImageUpload({ values, onChange, folder, label, max = 12 }: 
       </div>
 
       {values.length === 0 && !uploading && (
-        <p className="text-xs text-[var(--color-text-muted)]">
+        <p className="text-xs text-[var(--text-muted)]">
           Click "Add" to upload images. The first image becomes the cover photo.
         </p>
       )}

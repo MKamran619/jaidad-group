@@ -153,8 +153,8 @@ export function AdminPropertiesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-2xl font-bold text-[var(--color-text)]">Properties</h1>
-          <p className="text-sm text-[var(--color-text-muted)] mt-1">{properties.length} listings</p>
+          <h1 className="font-display text-2xl font-bold text-[var(--text)]">Properties</h1>
+          <p className="text-sm text-[var(--text-muted)] mt-1">{properties.length} listings</p>
         </div>
         <Button variant="primary" size="sm" onClick={openAdd}>
           <FiPlus className="h-4 w-4" /> Add Property
@@ -169,7 +169,7 @@ export function AdminPropertiesPage() {
         <select
           value={purposeFilter}
           onChange={(e) => setPurposeFilter(e.target.value)}
-          className="h-10 px-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]"
+          className="h-10 px-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
         >
           <option value="all">All Purposes</option>
           {PROPERTY_PURPOSES.map((p) => <option key={p.value} value={p.value}>{p.label}</option>)}
@@ -177,38 +177,38 @@ export function AdminPropertiesPage() {
       </div>
 
       {/* Table */}
-      <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden">
+      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="border-b border-[var(--color-border)] bg-[var(--color-background)]">
+            <thead className="border-b border-[var(--border)] bg-[var(--background)]">
               <tr>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Property</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Purpose</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Price</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Details</th>
-                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">Status</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Property</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Purpose</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Price</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Details</th>
+                <th className="text-left px-4 py-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide">Status</th>
                 <th className="px-4 py-3" />
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-border)]">
+            <tbody className="divide-y divide-[var(--border)]">
               {loading ? (
-                <tr><td colSpan={6} className="text-center py-12 text-[var(--color-text-muted)]">Loading...</td></tr>
+                <tr><td colSpan={6} className="text-center py-12 text-[var(--text-muted)]">Loading...</td></tr>
               ) : filtered.length === 0 ? (
-                <tr><td colSpan={6} className="text-center py-12 text-[var(--color-text-muted)]">No properties found</td></tr>
+                <tr><td colSpan={6} className="text-center py-12 text-[var(--text-muted)]">No properties found</td></tr>
               ) : filtered.map((p) => (
-                <tr key={p.id} className="hover:bg-[var(--color-background)] transition-colors">
+                <tr key={p.id} className="hover:bg-[var(--background)] transition-colors">
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-3">
                       {p.images?.[0] ? (
                         <img src={p.images[0]} alt={p.title} className="h-10 w-14 rounded-lg object-cover flex-shrink-0" />
                       ) : (
-                        <div className="h-10 w-14 rounded-lg bg-[var(--color-background)] flex items-center justify-center flex-shrink-0">
-                          <FiEye className="h-4 w-4 text-[var(--color-text-muted)]" />
+                        <div className="h-10 w-14 rounded-lg bg-[var(--background)] flex items-center justify-center flex-shrink-0">
+                          <FiEye className="h-4 w-4 text-[var(--text-muted)]" />
                         </div>
                       )}
                       <div>
-                        <p className="font-medium text-[var(--color-text)] line-clamp-1">{p.title}</p>
-                        <p className="text-xs text-[var(--color-text-muted)] capitalize">{p.property_type}</p>
+                        <p className="font-medium text-[var(--text)] line-clamp-1">{p.title}</p>
+                        <p className="text-xs text-[var(--text-muted)] capitalize">{p.property_type}</p>
                       </div>
                     </div>
                   </td>
@@ -218,10 +218,10 @@ export function AdminPropertiesPage() {
                     </Badge>
                   </td>
                   <td className="px-4 py-3">
-                    <p className="font-semibold text-[var(--color-brand-gold)]">{formatPrice(p.price, p.currency)}</p>
+                    <p className="font-semibold text-[var(--primary)]">{formatPrice(p.price, p.currency)}</p>
                   </td>
                   <td className="px-4 py-3">
-                    <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
+                    <div className="flex items-center gap-3 text-xs text-[var(--text-muted)]">
                       {p.bedrooms != null && <span className="flex items-center gap-1"><Bed className="h-3 w-3" />{p.bedrooms}</span>}
                       {p.bathrooms != null && <span className="flex items-center gap-1"><Bath className="h-3 w-3" />{p.bathrooms}</span>}
                       <span className="flex items-center gap-1"><Maximize2 className="h-3 w-3" />{p.area} {p.area_unit}</span>
@@ -248,15 +248,15 @@ export function AdminPropertiesPage() {
       {/* Form Modal */}
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={() => setShowForm(false)}>
-          <div className="bg-[var(--color-surface)] rounded-2xl w-full max-w-2xl max-h-[92vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <div className="p-5 border-b border-[var(--color-border)] flex items-center justify-between sticky top-0 bg-[var(--color-surface)] z-10">
-              <h2 className="font-display text-lg font-bold text-[var(--color-text)]">{editItem ? 'Edit' : 'Add'} Property</h2>
-              <button onClick={() => setShowForm(false)}><FiX className="h-5 w-5 text-[var(--color-text-muted)]" /></button>
+          <div className="bg-[var(--surface)] rounded-2xl w-full max-w-2xl max-h-[92vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="p-5 border-b border-[var(--border)] flex items-center justify-between sticky top-0 bg-[var(--surface)] z-10">
+              <h2 className="font-display text-lg font-bold text-[var(--text)]">{editItem ? 'Edit' : 'Add'} Property</h2>
+              <button onClick={() => setShowForm(false)}><FiX className="h-5 w-5 text-[var(--text-muted)]" /></button>
             </div>
             <div className="p-5 space-y-5">
               {/* Basic Info */}
               <div>
-                <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide mb-3">Basic Information</p>
+                <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-3">Basic Information</p>
                 <div className="space-y-3">
                   <Input
                     label="Title *"
@@ -271,7 +271,7 @@ export function AdminPropertiesPage() {
 
               {/* Classification */}
               <div>
-                <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide mb-3">Classification</p>
+                <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-3">Classification</p>
                 <div className="grid grid-cols-3 gap-3">
                   {[
                     { label: 'Type', field: 'property_type', options: PROPERTY_TYPES },
@@ -279,11 +279,11 @@ export function AdminPropertiesPage() {
                     { label: 'Status', field: 'property_status', options: PROPERTY_STATUSES },
                   ].map(({ label, field, options }) => (
                     <div key={field}>
-                      <label className="block text-xs font-medium text-[var(--color-text-muted)] mb-1.5">{label}</label>
+                      <label className="block text-xs font-medium text-[var(--text-muted)] mb-1.5">{label}</label>
                       <select
                         value={(form as Record<string, unknown>)[field]}
                         onChange={(e) => f(field as keyof FormState, e.target.value)}
-                        className="w-full h-10 px-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]"
+                        className="w-full h-10 px-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                       >
                         {options.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
                       </select>
@@ -294,19 +294,19 @@ export function AdminPropertiesPage() {
 
               {/* Pricing & Area */}
               <div>
-                <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide mb-3">Pricing & Area</p>
+                <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-3">Pricing & Area</p>
                 <div className="grid grid-cols-2 gap-3">
                   <Input label="Price *" type="number" value={form.price} onChange={(e) => f('price', e.target.value)} placeholder="e.g. 45000000" />
                   <div>
-                    <label className="block text-xs font-medium text-[var(--color-text-muted)] mb-1.5">Currency</label>
-                    <select value={form.currency} onChange={(e) => f('currency', e.target.value)} className="w-full h-10 px-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]">
+                    <label className="block text-xs font-medium text-[var(--text-muted)] mb-1.5">Currency</label>
+                    <select value={form.currency} onChange={(e) => f('currency', e.target.value)} className="w-full h-10 px-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
                       {['PKR', 'USD', 'AED'].map((c) => <option key={c} value={c}>{c}</option>)}
                     </select>
                   </div>
                   <Input label="Area *" type="number" value={form.area} onChange={(e) => f('area', e.target.value)} placeholder="e.g. 5" />
                   <div>
-                    <label className="block text-xs font-medium text-[var(--color-text-muted)] mb-1.5">Area Unit</label>
-                    <select value={form.area_unit} onChange={(e) => f('area_unit', e.target.value)} className="w-full h-10 px-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]">
+                    <label className="block text-xs font-medium text-[var(--text-muted)] mb-1.5">Area Unit</label>
+                    <select value={form.area_unit} onChange={(e) => f('area_unit', e.target.value)} className="w-full h-10 px-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
                       {AREA_UNITS.map((u) => <option key={u.value} value={u.value}>{u.label}</option>)}
                     </select>
                   </div>
@@ -315,7 +315,7 @@ export function AdminPropertiesPage() {
 
               {/* Rooms */}
               <div>
-                <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide mb-3">Rooms & Details</p>
+                <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-3">Rooms & Details</p>
                 <div className="grid grid-cols-4 gap-3">
                   {[
                     { label: 'Bedrooms', field: 'bedrooms' },
@@ -333,7 +333,7 @@ export function AdminPropertiesPage() {
 
               {/* Media */}
               <div>
-                <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide mb-3">Media & Features</p>
+                <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-3">Media & Features</p>
                 <div className="space-y-3">
                   <MultiImageUpload
                     label="Property Images"
@@ -352,12 +352,12 @@ export function AdminPropertiesPage() {
               {/* Settings */}
               <div className="flex items-center gap-4">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={form.is_featured} onChange={(e) => f('is_featured', e.target.checked)} className="w-4 h-4 accent-[var(--color-brand-gold)]" />
-                  <span className="text-sm text-[var(--color-text)]">Featured Property</span>
+                  <input type="checkbox" checked={form.is_featured} onChange={(e) => f('is_featured', e.target.checked)} className="w-4 h-4 accent-[var(--primary)]" />
+                  <span className="text-sm text-[var(--text)]">Featured Property</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={form.is_active} onChange={(e) => f('is_active', e.target.checked)} className="w-4 h-4 accent-[var(--color-brand-gold)]" />
-                  <span className="text-sm text-[var(--color-text)]">Active / Published</span>
+                  <input type="checkbox" checked={form.is_active} onChange={(e) => f('is_active', e.target.checked)} className="w-4 h-4 accent-[var(--primary)]" />
+                  <span className="text-sm text-[var(--text)]">Active / Published</span>
                 </label>
               </div>
 
@@ -375,9 +375,9 @@ export function AdminPropertiesPage() {
       {/* Delete Confirm */}
       {deleteId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={() => setDeleteId(null)}>
-          <div className="bg-[var(--color-surface)] rounded-2xl p-6 w-full max-w-sm shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <h3 className="font-display text-lg font-bold text-[var(--color-text)] mb-2">Delete Property?</h3>
-            <p className="text-sm text-[var(--color-text-muted)] mb-5">This action cannot be undone.</p>
+          <div className="bg-[var(--surface)] rounded-2xl p-6 w-full max-w-sm shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <h3 className="font-display text-lg font-bold text-[var(--text)] mb-2">Delete Property?</h3>
+            <p className="text-sm text-[var(--text-muted)] mb-5">This action cannot be undone.</p>
             <div className="flex gap-3">
               <Button variant="outline" className="flex-1" onClick={() => setDeleteId(null)}>Cancel</Button>
               <Button variant="destructive" className="flex-1" onClick={handleDelete}>Delete</Button>

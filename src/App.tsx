@@ -40,10 +40,10 @@ const queryClient = new QueryClient({
 function NotFound() {
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 text-center px-4">
-      <p className="font-display text-8xl font-black text-[var(--color-brand-gold)]">404</p>
-      <h1 className="font-display text-2xl font-bold text-[var(--color-text)]">Page Not Found</h1>
-      <p className="text-[var(--color-text-muted)]">The page you're looking for doesn't exist.</p>
-      <a href="/" className="mt-2 inline-flex items-center gap-2 rounded-xl bg-[var(--color-brand-gold)] px-6 py-3 text-sm font-semibold text-white hover:bg-amber-600 transition-colors">
+      <p className="font-display text-8xl font-black text-[var(--primary)]">404</p>
+      <h1 className="font-display text-2xl font-bold text-[var(--text)]">Page Not Found</h1>
+      <p className="text-[var(--text-muted)]">The page you're looking for doesn't exist.</p>
+      <a href="/" className="mt-2 inline-flex items-center gap-2 rounded-xl bg-[var(--primary)] px-6 py-3 text-sm font-semibold text-white hover:bg-amber-600 transition-colors">
         Back to Home
       </a>
     </div>
@@ -53,8 +53,8 @@ function NotFound() {
 function PlaceholderPage({ title }: { title: string }) {
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3 text-center px-4">
-      <h1 className="font-display text-3xl font-bold text-[var(--color-text)]">{title}</h1>
-      <p className="text-[var(--color-text-muted)] text-sm">This page is under development.</p>
+      <h1 className="font-display text-3xl font-bold text-[var(--text)]">{title}</h1>
+      <p className="text-[var(--text-muted)] text-sm">This page is under development.</p>
     </div>
   )
 }
@@ -62,8 +62,8 @@ function PlaceholderPage({ title }: { title: string }) {
 function AdminPlaceholder({ title }: { title: string }) {
   return (
     <div className="flex flex-col items-center justify-center h-64 gap-3 text-center">
-      <h1 className="font-display text-2xl font-bold text-[var(--color-text)]">{title}</h1>
-      <p className="text-[var(--color-text-muted)] text-sm">Module under development.</p>
+      <h1 className="font-display text-2xl font-bold text-[var(--text)]">{title}</h1>
+      <p className="text-[var(--text-muted)] text-sm">Module under development.</p>
     </div>
   )
 }
@@ -116,9 +116,9 @@ export default function App() {
           position="top-right"
           toastOptions={{
             style: {
-              background: 'var(--color-surface)',
-              border: '1px solid var(--color-border)',
-              color: 'var(--color-text)',
+              background: 'var(--surface)',
+              border: '1px solid var(--border)',
+              color: 'var(--text)',
             },
           }}
         />

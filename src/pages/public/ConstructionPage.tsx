@@ -80,10 +80,10 @@ export function ConstructionPage() {
         <div className="relative container mx-auto px-4">
           <div className="max-w-2xl">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-              <p className="text-[var(--color-brand-gold)] text-xs font-bold uppercase tracking-widest mb-4">Premium Construction</p>
+              <p className="text-[var(--primary)] text-xs font-bold uppercase tracking-widest mb-4">Premium Construction</p>
               <h1 className="font-display text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
                 Build Your Dream <br />
-                <span className="text-[var(--color-brand-gold)]">Home With Us</span>
+                <span className="text-[var(--primary)]">Home With Us</span>
               </h1>
               <p className="text-white/70 text-lg mb-8 leading-relaxed">
                 From architecture to finishing, we deliver turnkey construction solutions with unmatched quality and transparency.
@@ -111,7 +111,7 @@ export function ConstructionPage() {
 
       {/* Stats Bar */}
       {statItems.length > 0 && (
-        <div className="bg-[var(--color-brand-gold)] py-8">
+        <div className="bg-[var(--primary)] py-8">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {statItems.map((stat) => (
@@ -127,7 +127,7 @@ export function ConstructionPage() {
 
       {/* Services */}
       {(servicesLoading || (services ?? []).length > 0) && (
-        <div className="section-padding bg-[var(--color-background)]">
+        <div className="section-padding bg-[var(--background)]">
           <div className="container mx-auto px-4">
             <SectionHeader
               label="What We Build"
@@ -139,11 +139,11 @@ export function ConstructionPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {servicesLoading
                 ? Array.from({ length: 4 }).map((_, i) => (
-                    <div key={i} className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden">
-                      <div className="h-48 shimmer bg-[var(--color-background)]" />
+                    <div key={i} className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden">
+                      <div className="h-48 shimmer bg-[var(--background)]" />
                       <div className="p-6 space-y-3">
-                        <div className="h-5 w-2/3 rounded shimmer bg-[var(--color-background)]" />
-                        <div className="h-4 w-full rounded shimmer bg-[var(--color-background)]" />
+                        <div className="h-5 w-2/3 rounded shimmer bg-[var(--background)]" />
+                        <div className="h-4 w-full rounded shimmer bg-[var(--background)]" />
                       </div>
                     </div>
                   ))
@@ -156,7 +156,7 @@ export function ConstructionPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        className="group rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] hover:shadow-xl transition-all duration-300"
+                        className="group rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] hover:shadow-xl transition-all duration-300"
                       >
                         <div className="h-48 overflow-hidden bg-[var(--color-brand-black)]">
                           {service.image ? (
@@ -174,17 +174,17 @@ export function ConstructionPage() {
                         </div>
                         <div className="p-6">
                           <div className="flex items-center gap-3 mb-3">
-                            <div className="h-10 w-10 rounded-xl bg-[var(--color-brand-gold)]/10 flex items-center justify-center flex-shrink-0">
-                              <Icon className="h-5 w-5 text-[var(--color-brand-gold)]" />
+                            <div className="h-10 w-10 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center flex-shrink-0">
+                              <Icon className="h-5 w-5 text-[var(--primary)]" />
                             </div>
-                            <h3 className="font-display text-lg font-bold text-[var(--color-text)]">{service.title}</h3>
+                            <h3 className="font-display text-lg font-bold text-[var(--text)]">{service.title}</h3>
                           </div>
-                          <p className="text-sm text-[var(--color-text-muted)] mb-4 leading-relaxed">{service.description}</p>
+                          <p className="text-sm text-[var(--text-muted)] mb-4 leading-relaxed">{service.description}</p>
                           {service.features?.length > 0 && (
                             <div className="grid grid-cols-2 gap-2">
                               {service.features.map((f) => (
-                                <div key={f} className="flex items-center gap-1.5 text-xs text-[var(--color-text-muted)]">
-                                  <FiCheck className="h-3.5 w-3.5 text-[var(--color-brand-gold)] flex-shrink-0" />
+                                <div key={f} className="flex items-center gap-1.5 text-xs text-[var(--text-muted)]">
+                                  <FiCheck className="h-3.5 w-3.5 text-[var(--primary)] flex-shrink-0" />
                                   {f}
                                 </div>
                               ))}
@@ -201,7 +201,7 @@ export function ConstructionPage() {
 
       {/* Process */}
       {process.length > 0 && (
-        <div className="section-padding bg-[var(--color-surface)]">
+        <div className="section-padding bg-[var(--surface)]">
           <div className="container mx-auto px-4">
             <SectionHeader label="How We Work" title="Our Construction" highlightedWord="Process" className="mb-12" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -212,11 +212,11 @@ export function ConstructionPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="relative p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-border)]"
+                  className="relative p-6 rounded-2xl bg-[var(--background)] border border-[var(--border)]"
                 >
-                  <p className="font-display text-5xl font-black text-[var(--color-brand-gold)]/20 mb-3 leading-none">{step.step}</p>
-                  <h3 className="font-display text-lg font-bold text-[var(--color-text)] mb-2">{step.title}</h3>
-                  <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{step.description}</p>
+                  <p className="font-display text-5xl font-black text-[var(--primary)]/20 mb-3 leading-none">{step.step}</p>
+                  <h3 className="font-display text-lg font-bold text-[var(--text)] mb-2">{step.title}</h3>
+                  <p className="text-sm text-[var(--text-muted)] leading-relaxed">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -226,7 +226,7 @@ export function ConstructionPage() {
 
       {/* Packages */}
       {packages.length > 0 && (
-        <div className="section-padding bg-[var(--color-background)]">
+        <div className="section-padding bg-[var(--background)]">
           <div className="container mx-auto px-4">
             <SectionHeader label="Transparent Pricing" title="Construction" highlightedWord="Packages" className="mb-12" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -238,26 +238,26 @@ export function ConstructionPage() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   className={cn(
-                    'relative rounded-2xl border-2 p-6 bg-[var(--color-surface)]',
+                    'relative rounded-2xl border-2 p-6 bg-[var(--surface)]',
                     pkg.popular
-                      ? 'border-[var(--color-brand-gold)] ring-2 ring-[var(--color-brand-gold)] ring-offset-2 ring-offset-[var(--color-background)]'
-                      : 'border-[var(--color-border)]'
+                      ? 'border-[var(--primary)] ring-2 ring-[var(--primary)] ring-offset-2 ring-offset-[var(--background)]'
+                      : 'border-[var(--border)]'
                   )}
                 >
                   {pkg.popular && (
                     <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                      <span className="bg-[var(--color-brand-gold)] text-white text-xs font-bold px-4 py-1 rounded-full flex items-center gap-1 whitespace-nowrap">
+                      <span className="bg-[var(--primary)] text-white text-xs font-bold px-4 py-1 rounded-full flex items-center gap-1 whitespace-nowrap">
                         <FiStar className="h-3 w-3" /> Most Popular
                       </span>
                     </div>
                   )}
-                  <h3 className="font-display text-xl font-bold text-[var(--color-text)] mb-1">{pkg.name}</h3>
-                  <p className="font-display text-2xl font-black text-[var(--color-brand-gold)]">PKR {pkg.price}</p>
-                  <p className="text-xs text-[var(--color-text-muted)] mb-5">{pkg.per}</p>
+                  <h3 className="font-display text-xl font-bold text-[var(--text)] mb-1">{pkg.name}</h3>
+                  <p className="font-display text-2xl font-black text-[var(--primary)]">PKR {pkg.price}</p>
+                  <p className="text-xs text-[var(--text-muted)] mb-5">{pkg.per}</p>
                   <ul className="space-y-2.5 mb-6">
                     {pkg.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-[var(--color-text-muted)]">
-                        <FiCheck className="h-4 w-4 text-[var(--color-brand-gold)] flex-shrink-0 mt-0.5" />
+                      <li key={f} className="flex items-start gap-2 text-sm text-[var(--text-muted)]">
+                        <FiCheck className="h-4 w-4 text-[var(--primary)] flex-shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
@@ -279,22 +279,22 @@ export function ConstructionPage() {
 
       {/* FAQ */}
       {faqs.length > 0 && (
-        <div className="section-padding bg-[var(--color-surface)]">
+        <div className="section-padding bg-[var(--surface)]">
           <div className="container mx-auto px-4 max-w-3xl">
             <SectionHeader label="Questions & Answers" title="Frequently Asked" highlightedWord="Questions" className="mb-12" />
             <div className="space-y-3">
               {faqs.map((faq, i) => (
-                <div key={i} className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] overflow-hidden">
+                <div key={i} className="rounded-2xl border border-[var(--border)] bg-[var(--background)] overflow-hidden">
                   <button
                     className="w-full flex items-center justify-between gap-4 p-5 text-left"
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   >
-                    <span className="font-semibold text-[var(--color-text)] text-sm">{faq.q}</span>
-                    <FiChevronDown className={cn('h-4 w-4 text-[var(--color-text-muted)] flex-shrink-0 transition-transform duration-200', openFaq === i && 'rotate-180')} />
+                    <span className="font-semibold text-[var(--text)] text-sm">{faq.q}</span>
+                    <FiChevronDown className={cn('h-4 w-4 text-[var(--text-muted)] flex-shrink-0 transition-transform duration-200', openFaq === i && 'rotate-180')} />
                   </button>
                   {openFaq === i && (
                     <div className="px-5 pb-5">
-                      <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{faq.a}</p>
+                      <p className="text-sm text-[var(--text-muted)] leading-relaxed">{faq.a}</p>
                     </div>
                   )}
                 </div>

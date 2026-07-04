@@ -22,7 +22,7 @@ export function WhyChooseUs() {
   if (!isLoading && reasons.length === 0) return null
 
   return (
-    <section className="section-padding bg-[var(--color-surface)]">
+    <section className="section-padding bg-[var(--surface)]">
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Why Jaidad Group"
@@ -33,7 +33,7 @@ export function WhyChooseUs() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {isLoading
             ? Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] p-7 h-44 shimmer" />
+                <div key={i} className="rounded-2xl border border-[var(--border)] bg-[var(--background)] p-7 h-44 shimmer" />
               ))
             : reasons.map((reason, i) => {
                 const Icon = ICON_MAP[reason.icon] ?? FiShield
@@ -44,14 +44,14 @@ export function WhyChooseUs() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="group relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] p-7 hover:border-[var(--color-brand-gold)]/50 hover:shadow-lg transition-all duration-300"
+                    className="group relative rounded-2xl border border-[var(--border)] bg-[var(--background)] p-7 hover:border-[var(--primary)]/50 hover:shadow-lg transition-all duration-300"
                   >
                     <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${reason.color} shadow-lg mb-5`}>
                       <Icon className="h-6 w-6 text-white" />
                     </div>
-                    <h3 className="font-display text-lg font-bold text-[var(--color-text)] mb-2">{reason.title}</h3>
-                    <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{reason.description}</p>
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl bg-gradient-to-r from-[var(--color-brand-gold)] to-[var(--color-brand-gold-dark)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                    <h3 className="font-display text-lg font-bold text-[var(--text)] mb-2">{reason.title}</h3>
+                    <p className="text-sm text-[var(--text-muted)] leading-relaxed">{reason.description}</p>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                   </motion.div>
                 )
               })}

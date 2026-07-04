@@ -37,8 +37,8 @@ export function AdminDashboard() {
       {/* Welcome */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-2xl font-bold text-[var(--color-text)]">Welcome back, Admin</h1>
-          <p className="text-sm text-[var(--color-text-muted)] mt-0.5">Here's what's happening with your portfolio today.</p>
+          <h1 className="font-display text-2xl font-bold text-[var(--text)]">Welcome back, Admin</h1>
+          <p className="text-sm text-[var(--text-muted)] mt-0.5">Here's what's happening with your portfolio today.</p>
         </div>
         <Badge variant="success" className="gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -66,8 +66,8 @@ export function AdminDashboard() {
                     {stat.change}
                   </span>
                 </div>
-                <p className="font-display text-2xl font-black text-[var(--color-text)]">{stat.value}</p>
-                <p className="text-xs text-[var(--color-text-muted)] mt-0.5">{stat.label}</p>
+                <p className="font-display text-2xl font-black text-[var(--text)]">{stat.value}</p>
+                <p className="text-xs text-[var(--text-muted)] mt-0.5">{stat.label}</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -94,12 +94,12 @@ export function AdminDashboard() {
                     <stop offset="95%" stopColor="#4F46E5" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" />
-                <XAxis dataKey="month" tick={{ fontSize: 11 }} stroke="var(--color-border)" />
-                <YAxis tick={{ fontSize: 11 }} stroke="var(--color-border)" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+                <XAxis dataKey="month" tick={{ fontSize: 11 }} stroke="var(--border)" />
+                <YAxis tick={{ fontSize: 11 }} stroke="var(--border)" />
                 <Tooltip
-                  contentStyle={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 12 }}
-                  labelStyle={{ color: 'var(--color-text)', fontWeight: 600 }}
+                  contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 12 }}
+                  labelStyle={{ color: 'var(--text)', fontWeight: 600 }}
                 />
                 <Area type="monotone" dataKey="revenue" stroke="#F5A623" fill="url(#revenue)" strokeWidth={2} name="Revenue (M)" />
                 <Area type="monotone" dataKey="inquiries" stroke="#4F46E5" fill="url(#inquiries)" strokeWidth={2} name="Inquiries" />
@@ -114,7 +114,7 @@ export function AdminDashboard() {
             <CardTitle>Recent Activity</CardTitle>
           </CardHeader>
           <CardContent className="p-0">
-            <div className="divide-y divide-[var(--color-border)]">
+            <div className="divide-y divide-[var(--border)]">
               {RECENT_ACTIVITY.map((item, i) => (
                 <div key={i} className="flex gap-3 p-4">
                   <div className={`h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 ${
@@ -127,8 +127,8 @@ export function AdminDashboard() {
                      <FiStar className="h-3.5 w-3.5 text-amber-500" />}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs text-[var(--color-text)] leading-snug">{item.text}</p>
-                    <p className="text-[10px] text-[var(--color-text-muted)] mt-0.5">{relativeTime(item.time)}</p>
+                    <p className="text-xs text-[var(--text)] leading-snug">{item.text}</p>
+                    <p className="text-[10px] text-[var(--text-muted)] mt-0.5">{relativeTime(item.time)}</p>
                   </div>
                 </div>
               ))}
@@ -142,7 +142,7 @@ export function AdminDashboard() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle>Top Properties</CardTitle>
-            <Link to="/admin/properties" className="text-xs text-[var(--color-brand-gold)] hover:underline flex items-center gap-1">
+            <Link to="/admin/properties" className="text-xs text-[var(--primary)] hover:underline flex items-center gap-1">
               View all <FiArrowUpRight className="h-3 w-3" />
             </Link>
           </div>
@@ -151,27 +151,27 @@ export function AdminDashboard() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-[var(--color-border)]">
+                <tr className="border-b border-[var(--border)]">
                   {['Property', 'Type', 'Price', 'Views', 'Status'].map((h) => (
-                    <th key={h} className="text-left py-3 px-3 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">{h}</th>
+                    <th key={h} className="text-left py-3 px-3 text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider">{h}</th>
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--color-border)]">
+              <tbody className="divide-y divide-[var(--border)]">
                 {DEMO_PROPERTIES.slice(0, 5).map((p) => (
-                  <tr key={p.id} className="hover:bg-[var(--color-surface)] transition-colors">
+                  <tr key={p.id} className="hover:bg-[var(--surface)] transition-colors">
                     <td className="py-3 px-3">
                       <div className="flex items-center gap-3">
                         <img src={p.images[0]} alt="" className="h-10 w-14 rounded-lg object-cover flex-shrink-0" />
                         <div>
-                          <p className="text-sm font-medium text-[var(--color-text)] line-clamp-1">{p.title}</p>
-                          <p className="text-xs text-[var(--color-text-muted)]">{p.address}</p>
+                          <p className="text-sm font-medium text-[var(--text)] line-clamp-1">{p.title}</p>
+                          <p className="text-xs text-[var(--text-muted)]">{p.address}</p>
                         </div>
                       </div>
                     </td>
                     <td className="py-3 px-3"><Badge variant="secondary" className="capitalize text-xs">{p.property_type}</Badge></td>
-                    <td className="py-3 px-3 text-sm font-semibold text-[var(--color-brand-gold)]">{formatPrice(p.price, p.currency)}</td>
-                    <td className="py-3 px-3 text-sm text-[var(--color-text-muted)]">{p.view_count}</td>
+                    <td className="py-3 px-3 text-sm font-semibold text-[var(--primary)]">{formatPrice(p.price, p.currency)}</td>
+                    <td className="py-3 px-3 text-sm text-[var(--text-muted)]">{p.view_count}</td>
                     <td className="py-3 px-3">
                       <Badge variant={p.property_status === 'available' ? 'success' : 'danger'} className="capitalize text-xs">
                         {p.property_status}

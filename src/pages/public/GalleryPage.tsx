@@ -14,7 +14,7 @@ function GallerySkeleton() {
       {Array.from({ length: 8 }).map((_, i) => (
         <div
           key={i}
-          className="break-inside-avoid rounded-2xl overflow-hidden shimmer bg-[var(--color-surface)]"
+          className="break-inside-avoid rounded-2xl overflow-hidden shimmer bg-[var(--surface)]"
           style={{ height: i % 3 === 0 ? '280px' : i % 3 === 1 ? '200px' : '240px' }}
         />
       ))}
@@ -78,9 +78,9 @@ export function GalleryPage() {
       {/* Hero */}
       <div className="bg-[var(--color-brand-black)] py-20 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <p className="text-[var(--color-brand-gold)] text-xs font-bold uppercase tracking-widest mb-3">Visual Portfolio</p>
+          <p className="text-[var(--primary)] text-xs font-bold uppercase tracking-widest mb-3">Visual Portfolio</p>
           <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-4">
-            Our <span className="text-[var(--color-brand-gold)]">Gallery</span>
+            Our <span className="text-[var(--primary)]">Gallery</span>
           </h1>
           <p className="text-white/60 max-w-xl mx-auto text-sm">
             Explore our collection of premium properties, ongoing projects, and construction work across Pakistan.
@@ -89,7 +89,7 @@ export function GalleryPage() {
       </div>
 
       {/* Filter */}
-      <div className="bg-[var(--color-surface)] border-b border-[var(--color-border)] sticky top-[73px] z-10">
+      <div className="bg-[var(--surface)] border-b border-[var(--border)] sticky top-[73px] z-10">
         <div className="container mx-auto px-4">
           <div className="flex gap-1 py-3 overflow-x-auto scrollbar-none">
             {GALLERY_CATEGORIES.map((cat) => (
@@ -99,8 +99,8 @@ export function GalleryPage() {
                 className={cn(
                   'px-5 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap flex-shrink-0',
                   activeCategory === cat
-                    ? 'bg-[var(--color-brand-gold)] text-white'
-                    : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-background)]'
+                    ? 'bg-[var(--primary)] text-white'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--background)]'
                 )}
               >
                 {cat}
@@ -111,17 +111,17 @@ export function GalleryPage() {
       </div>
 
       {/* Grid */}
-      <div className="section-padding bg-[var(--color-background)]">
+      <div className="section-padding bg-[var(--background)]">
         <div className="container mx-auto px-4">
           {isLoading ? (
             <GallerySkeleton />
           ) : filtered.length === 0 ? (
             <div className="text-center py-24">
-              <p className="text-[var(--color-text-muted)] text-lg">No gallery items found.</p>
+              <p className="text-[var(--text-muted)] text-lg">No gallery items found.</p>
             </div>
           ) : (
             <>
-              <p className="text-sm text-[var(--color-text-muted)] mb-6">{filtered.length} photos</p>
+              <p className="text-sm text-[var(--text-muted)] mb-6">{filtered.length} photos</p>
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCategory}

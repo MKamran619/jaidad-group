@@ -56,7 +56,7 @@ export function Footer() {
               <Input
                 placeholder="Your email address"
                 type="email"
-                className="md:w-72 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:ring-[var(--color-brand-gold)]"
+                className="md:w-72 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:ring-[var(--primary)]"
               />
               <Button variant="primary" type="submit" size="md">
                 Subscribe <FiArrowRight className="h-4 w-4" />
@@ -72,7 +72,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-5">
             <Link to="/" className="flex items-center gap-3">
-              <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-[var(--color-brand-gold)] shadow-lg">
+              <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-[var(--primary)] shadow-lg">
                 <span className="font-display font-black text-white text-lg">J+</span>
               </div>
               <div>
@@ -92,7 +92,7 @@ export function Footer() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={label}
-                    className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-[var(--color-brand-gold)] hover:text-white transition-all duration-200"
+                    className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-[var(--primary)] hover:text-white transition-all duration-200"
                   >
                     <Icon className="h-4 w-4" />
                   </a>
@@ -109,7 +109,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     to={item.href}
-                    className="text-white/60 text-sm hover:text-[var(--color-brand-gold)] transition-colors flex items-center gap-2 group"
+                    className="text-white/60 text-sm hover:text-[var(--primary)] transition-colors flex items-center gap-2 group"
                   >
                     <FiArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                     {item.label}
@@ -127,7 +127,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     to={item.href}
-                    className="text-white/60 text-sm hover:text-[var(--color-brand-gold)] transition-colors flex items-center gap-2 group"
+                    className="text-white/60 text-sm hover:text-[var(--primary)] transition-colors flex items-center gap-2 group"
                   >
                     <FiArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                     {item.label}
@@ -144,7 +144,7 @@ export function Footer() {
               {phone && (
                 <li>
                   <a href={`tel:${phone}`} className="flex gap-3 text-sm text-white/60 hover:text-white transition-colors">
-                    <FiPhone className="h-4 w-4 text-[var(--color-brand-gold)] mt-0.5 flex-shrink-0" />
+                    <FiPhone className="h-4 w-4 text-[var(--primary)] mt-0.5 flex-shrink-0" />
                     <span>{phone}</span>
                   </a>
                 </li>
@@ -152,7 +152,7 @@ export function Footer() {
               {email && (
                 <li>
                   <a href={`mailto:${email}`} className="flex gap-3 text-sm text-white/60 hover:text-white transition-colors">
-                    <FiMail className="h-4 w-4 text-[var(--color-brand-gold)] mt-0.5 flex-shrink-0" />
+                    <FiMail className="h-4 w-4 text-[var(--primary)] mt-0.5 flex-shrink-0" />
                     <span>{email}</span>
                   </a>
                 </li>
@@ -160,7 +160,7 @@ export function Footer() {
               {address && (
                 <li>
                   <div className="flex gap-3 text-sm text-white/60">
-                    <FiMapPin className="h-4 w-4 text-[var(--color-brand-gold)] mt-0.5 flex-shrink-0" />
+                    <FiMapPin className="h-4 w-4 text-[var(--primary)] mt-0.5 flex-shrink-0" />
                     <span>{address}</span>
                   </div>
                 </li>

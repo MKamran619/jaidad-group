@@ -38,13 +38,13 @@ export function PropertyCard({ property, className, compact = false }: PropertyC
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
       className={cn(
-        'group relative rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm hover:shadow-xl transition-all duration-300',
+        'group relative rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] shadow-sm hover:shadow-xl transition-all duration-300',
         className
       )}
     >
       {/* Image */}
       <Link to={`/properties/${property.slug}`} className="block relative overflow-hidden">
-        <div className={cn('relative overflow-hidden bg-[var(--color-surface-alt)]', compact ? 'h-44' : 'h-56')}>
+        <div className={cn('relative overflow-hidden bg-[var(--surface-alt)]', compact ? 'h-44' : 'h-56')}>
           {image ? (
             <img
               src={image}
@@ -66,7 +66,7 @@ export function PropertyCard({ property, className, compact = false }: PropertyC
             {property.property_purpose === 'sale' ? 'For Sale' : property.property_purpose === 'rent' ? 'For Rent' : 'Construction'}
           </Badge>
           {property.is_featured && (
-            <Badge variant="default" className="bg-[var(--color-brand-gold-dark)]">
+            <Badge variant="default" className="bg-[var(--primary-dark)]">
               Featured
             </Badge>
           )}
@@ -74,7 +74,7 @@ export function PropertyCard({ property, className, compact = false }: PropertyC
 
         {/* Wishlist */}
         <button
-          className="absolute top-3 right-3 h-8 w-8 rounded-full bg-white/90 dark:bg-black/60 flex items-center justify-center text-[var(--color-text-muted)] hover:text-red-500 transition-colors shadow-sm"
+          className="absolute top-3 right-3 h-8 w-8 rounded-full bg-white/90 dark:bg-black/60 flex items-center justify-center text-[var(--text-muted)] hover:text-red-500 transition-colors shadow-sm"
           onClick={(e) => e.preventDefault()}
           aria-label="Add to wishlist"
         >
@@ -93,10 +93,10 @@ export function PropertyCard({ property, className, compact = false }: PropertyC
       <div className="p-5">
         <div className="flex items-start justify-between gap-2 mb-2">
           <div>
-            <p className="text-xs text-[var(--color-text-muted)] capitalize">{property.property_type}</p>
+            <p className="text-xs text-[var(--text-muted)] capitalize">{property.property_type}</p>
             <Link
               to={`/properties/${property.slug}`}
-              className="font-display font-semibold text-[var(--color-text)] text-base hover:text-[var(--color-brand-gold)] transition-colors line-clamp-2 leading-tight mt-0.5"
+              className="font-display font-semibold text-[var(--text)] text-base hover:text-[var(--primary)] transition-colors line-clamp-2 leading-tight mt-0.5"
             >
               {property.title}
             </Link>
@@ -104,19 +104,19 @@ export function PropertyCard({ property, className, compact = false }: PropertyC
         </div>
 
         {/* Location */}
-        <div className="flex items-center gap-1 text-xs text-[var(--color-text-muted)] mb-3">
-          <FiMapPin className="h-3 w-3 text-[var(--color-brand-gold)] flex-shrink-0" />
+        <div className="flex items-center gap-1 text-xs text-[var(--text-muted)] mb-3">
+          <FiMapPin className="h-3 w-3 text-[var(--primary)] flex-shrink-0" />
           <span className="truncate">{property.address}</span>
         </div>
 
         {/* Price */}
-        <p className="font-display text-xl font-bold text-[var(--color-brand-gold)] mb-4">
+        <p className="font-display text-xl font-bold text-[var(--primary)] mb-4">
           {formatPrice(property.price, property.currency)}
         </p>
 
         {/* Features */}
         {!compact && (
-          <div className="flex items-center gap-4 py-3 border-t border-[var(--color-border)] text-xs text-[var(--color-text-muted)]">
+          <div className="flex items-center gap-4 py-3 border-t border-[var(--border)] text-xs text-[var(--text-muted)]">
             {property.bedrooms != null && (
               <span className="flex items-center gap-1">
                 <Bed className="h-3.5 w-3.5" />

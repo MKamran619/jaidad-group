@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiMenu, FiX, FiPhone, FiMoon, FiSun } from 'react-icons/fi'
+import { FiMenu, FiX, FiPhone } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 import { Button, buttonVariants } from '@/components/ui/Button'
 import { NAV_ITEMS } from '@/lib/utils/constants'
-import { useTheme } from '@/hooks/useTheme'
+import { ThemeSwitcher } from '@/components/layout/ThemeSwitcher'
 import { useSettings } from '@/hooks/useSettings'
 import { cn } from '@/lib/utils/cn'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { isDark, toggle } = useTheme()
   const { data: settings } = useSettings()
   const location = useLocation()
 
@@ -42,7 +41,7 @@ export function Header() {
             <p>{welcomeText}</p>
             <div className="flex items-center gap-4">
               {phone && (
-                <a href={`tel:${phone}`} className="flex items-center gap-1 hover:text-[var(--color-brand-gold)] transition-colors">
+                <a href={`tel:${phone}`} className="flex items-center gap-1 hover:text-[var(--primary)] transition-colors">
                   <FiPhone className="h-3 w-3" />
                   {phone}
                 </a>
@@ -68,8 +67,8 @@ export function Header() {
         className={cn(
           'sticky top-0 z-40 w-full transition-all duration-300',
           scrolled
-            ? 'bg-[var(--color-background)]/95 backdrop-blur-xl shadow-lg border-b border-[var(--color-border)]'
-            : 'bg-[var(--color-background)] border-b border-[var(--color-border)]'
+            ? 'bg-[var(--background)]/95 backdrop-blur-xl shadow-lg border-b border-[var(--border)]'
+            : 'bg-[var(--background)] border-b border-[var(--border)]'
         )}
       >
         <div className="container mx-auto px-4">
@@ -77,11 +76,11 @@ export function Header() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 flex-shrink-0">
               <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-[var(--color-brand-black)] shadow-lg">
-                <span className="font-display font-black text-[var(--color-brand-gold)] text-lg">J+</span>
+                <span className="font-display font-black text-[var(--primary)] text-lg">J+</span>
               </div>
               <div className="hidden sm:block">
-                <p className="font-display font-bold text-[var(--color-text)] text-sm leading-tight">Jaidad Group</p>
-                <p className="text-[10px] text-[var(--color-text-muted)] leading-tight">Premium Real Estate</p>
+                <p className="font-display font-bold text-[var(--text)] text-sm leading-tight">Jaidad Group</p>
+                <p className="text-[10px] text-[var(--text-muted)] leading-tight">Premium Real Estate</p>
               </div>
             </Link>
 
@@ -95,8 +94,8 @@ export function Header() {
                     cn(
                       'px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200',
                       isActive
-                        ? 'text-[var(--color-brand-gold)] bg-[var(--color-brand-gold)]/10'
-                        : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)]'
+                        ? 'text-[var(--primary)] bg-[var(--primary)]/10'
+                        : 'text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--surface)]'
                     )
                   }
                 >
@@ -107,13 +106,7 @@ export function Header() {
 
             {/* Right Actions */}
             <div className="flex items-center gap-2">
-              <button
-                onClick={toggle}
-                className="h-9 w-9 rounded-xl border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)] transition-all"
-                aria-label="Toggle theme"
-              >
-                {isDark ? <FiSun className="h-4 w-4" /> : <FiMoon className="h-4 w-4" />}
-              </button>
+              <ThemeSwitcher />
 
               <Link
                 to="/contact"
@@ -125,7 +118,7 @@ export function Header() {
               {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden h-9 w-9 rounded-xl border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)]"
+                className="lg:hidden h-9 w-9 rounded-xl border border-[var(--border)] flex items-center justify-center text-[var(--text-muted)]"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <FiX className="h-5 w-5" /> : <FiMenu className="h-5 w-5" />}
@@ -142,7 +135,7 @@ export function Header() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
-              className="lg:hidden border-t border-[var(--color-border)] bg-[var(--color-background)]"
+              className="lg:hidden border-t border-[var(--border)] bg-[var(--background)]"
             >
               <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
                 {NAV_ITEMS.map((item) => (
@@ -153,8 +146,8 @@ export function Header() {
                       cn(
                         'flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all',
                         isActive
-                          ? 'text-[var(--color-brand-gold)] bg-[var(--color-brand-gold)]/10'
-                          : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)]'
+                          ? 'text-[var(--primary)] bg-[var(--primary)]/10'
+                          : 'text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--surface)]'
                       )
                     }
                   >

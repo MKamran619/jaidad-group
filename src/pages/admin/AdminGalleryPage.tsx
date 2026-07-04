@@ -97,8 +97,8 @@ export function AdminGalleryPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-2xl font-bold text-[var(--color-text)]">Gallery</h1>
-          <p className="text-sm text-[var(--color-text-muted)] mt-1">{items.length} items</p>
+          <h1 className="font-display text-2xl font-bold text-[var(--text)]">Gallery</h1>
+          <p className="text-sm text-[var(--text-muted)] mt-1">{items.length} items</p>
         </div>
         <Button variant="primary" size="sm" onClick={() => setShowForm(true)}>
           <FiPlus className="h-4 w-4" /> Add Photo
@@ -114,8 +114,8 @@ export function AdminGalleryPage() {
             className={cn(
               'px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap flex-shrink-0',
               activeCategory === cat
-                ? 'bg-[var(--color-brand-gold)] text-white'
-                : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)] border border-[var(--color-border)]'
+                ? 'bg-[var(--primary)] text-white'
+                : 'text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--surface)] border border-[var(--border)]'
             )}
           >
             {cat}
@@ -125,11 +125,11 @@ export function AdminGalleryPage() {
 
       {/* Grid */}
       {loading ? (
-        <div className="text-center py-12 text-[var(--color-text-muted)]">Loading...</div>
+        <div className="text-center py-12 text-[var(--text-muted)]">Loading...</div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {filtered.map((item) => (
-            <div key={item.id} className="group relative rounded-xl overflow-hidden aspect-square border border-[var(--color-border)]">
+            <div key={item.id} className="group relative rounded-xl overflow-hidden aspect-square border border-[var(--border)]">
               <img
                 src={item.thumbnail ?? item.url}
                 alt={item.title}
@@ -169,7 +169,7 @@ export function AdminGalleryPage() {
       )}
 
       {filtered.length === 0 && !loading && (
-        <div className="text-center py-16 text-[var(--color-text-muted)]">
+        <div className="text-center py-16 text-[var(--text-muted)]">
           <FiImage className="h-12 w-12 mx-auto mb-3 opacity-20" />
           <p>No gallery items in this category.</p>
         </div>
@@ -178,30 +178,30 @@ export function AdminGalleryPage() {
       {/* Add Form Modal */}
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={() => setShowForm(false)}>
-          <div className="bg-[var(--color-surface)] rounded-2xl w-full max-w-md shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <div className="p-5 border-b border-[var(--color-border)] flex items-center justify-between">
-              <h2 className="font-display text-lg font-bold text-[var(--color-text)]">Add to Gallery</h2>
-              <button onClick={() => setShowForm(false)}><FiX className="h-5 w-5 text-[var(--color-text-muted)]" /></button>
+          <div className="bg-[var(--surface)] rounded-2xl w-full max-w-md shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="p-5 border-b border-[var(--border)] flex items-center justify-between">
+              <h2 className="font-display text-lg font-bold text-[var(--text)]">Add to Gallery</h2>
+              <button onClick={() => setShowForm(false)}><FiX className="h-5 w-5 text-[var(--text-muted)]" /></button>
             </div>
             <div className="p-5 space-y-4">
               <Input label="Title *" value={form.title} onChange={(e) => f('title', e.target.value)} placeholder="Photo title" />
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-muted)] mb-1.5">Category</label>
+                  <label className="block text-xs font-medium text-[var(--text-muted)] mb-1.5">Category</label>
                   <select
                     value={form.category}
                     onChange={(e) => f('category', e.target.value)}
-                    className="w-full h-10 px-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]"
+                    className="w-full h-10 px-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                   >
                     {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-[var(--color-text-muted)] mb-1.5">Type</label>
+                  <label className="block text-xs font-medium text-[var(--text-muted)] mb-1.5">Type</label>
                   <select
                     value={form.type}
                     onChange={(e) => f('type', e.target.value)}
-                    className="w-full h-10 px-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)]"
+                    className="w-full h-10 px-3 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--text)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                   >
                     <option value="image">Image</option>
                     <option value="video">Video</option>
@@ -244,9 +244,9 @@ export function AdminGalleryPage() {
       {/* Delete Confirm */}
       {deleteId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={() => setDeleteId(null)}>
-          <div className="bg-[var(--color-surface)] rounded-2xl p-6 w-full max-w-sm shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <h3 className="font-display text-lg font-bold text-[var(--color-text)] mb-2">Remove from Gallery?</h3>
-            <p className="text-sm text-[var(--color-text-muted)] mb-5">This action cannot be undone.</p>
+          <div className="bg-[var(--surface)] rounded-2xl p-6 w-full max-w-sm shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <h3 className="font-display text-lg font-bold text-[var(--text)] mb-2">Remove from Gallery?</h3>
+            <p className="text-sm text-[var(--text-muted)] mb-5">This action cannot be undone.</p>
             <div className="flex gap-3">
               <Button variant="outline" className="flex-1" onClick={() => setDeleteId(null)}>Cancel</Button>
               <Button variant="destructive" className="flex-1" onClick={handleDelete}>Remove</Button>

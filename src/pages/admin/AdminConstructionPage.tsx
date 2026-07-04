@@ -124,8 +124,8 @@ export function AdminConstructionPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-2xl font-bold text-[var(--color-text)]">Construction Services</h1>
-          <p className="text-sm text-[var(--color-text-muted)] mt-1">{items.length} services</p>
+          <h1 className="font-display text-2xl font-bold text-[var(--text)]">Construction Services</h1>
+          <p className="text-sm text-[var(--text-muted)] mt-1">{items.length} services</p>
         </div>
         <Button variant="primary" size="sm" onClick={openAdd}>
           <FiPlus className="h-4 w-4" /> New Service
@@ -133,15 +133,15 @@ export function AdminConstructionPage() {
       </div>
 
       {loading ? (
-        <div className="text-center py-12 text-[var(--color-text-muted)]">Loading...</div>
+        <div className="text-center py-12 text-[var(--text-muted)]">Loading...</div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map((item) => (
             <div
               key={item.id}
               className={cn(
-                'rounded-2xl border bg-[var(--color-surface)] overflow-hidden transition-all',
-                item.is_active ? 'border-[var(--color-border)]' : 'border-[var(--color-border)] opacity-60'
+                'rounded-2xl border bg-[var(--surface)] overflow-hidden transition-all',
+                item.is_active ? 'border-[var(--border)]' : 'border-[var(--border)] opacity-60'
               )}
             >
               {item.image && (
@@ -152,25 +152,25 @@ export function AdminConstructionPage() {
               <div className="p-5">
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-display font-bold text-[var(--color-text)] truncate">{item.title}</h3>
-                    <p className="text-xs text-[var(--color-text-muted)] mt-0.5">{item.packages.length} packages</p>
+                    <h3 className="font-display font-bold text-[var(--text)] truncate">{item.title}</h3>
+                    <p className="text-xs text-[var(--text-muted)] mt-0.5">{item.packages.length} packages</p>
                   </div>
                   <Badge variant={item.is_active ? 'success' : 'secondary'} className="ml-2 flex-shrink-0">
                     {item.is_active ? 'Active' : 'Hidden'}
                   </Badge>
                 </div>
 
-                <p className="text-sm text-[var(--color-text-muted)] line-clamp-2 mb-3">{item.description}</p>
+                <p className="text-sm text-[var(--text-muted)] line-clamp-2 mb-3">{item.description}</p>
 
                 {item.features.length > 0 && (
                   <div className="flex flex-wrap gap-1 mb-4">
                     {item.features.slice(0, 3).map((feat) => (
-                      <span key={feat} className="text-xs bg-[var(--color-background)] border border-[var(--color-border)] rounded-full px-2 py-0.5 text-[var(--color-text-muted)]">
+                      <span key={feat} className="text-xs bg-[var(--background)] border border-[var(--border)] rounded-full px-2 py-0.5 text-[var(--text-muted)]">
                         {feat}
                       </span>
                     ))}
                     {item.features.length > 3 && (
-                      <span className="text-xs text-[var(--color-text-muted)]">+{item.features.length - 3} more</span>
+                      <span className="text-xs text-[var(--text-muted)]">+{item.features.length - 3} more</span>
                     )}
                   </div>
                 )}
@@ -181,14 +181,14 @@ export function AdminConstructionPage() {
                   </Button>
                   <button
                     onClick={() => toggleActive(item)}
-                    className="p-2 rounded-lg border border-[var(--color-border)] hover:bg-[var(--color-background)] text-[var(--color-text-muted)] transition-colors"
+                    className="p-2 rounded-lg border border-[var(--border)] hover:bg-[var(--background)] text-[var(--text-muted)] transition-colors"
                     title={item.is_active ? 'Hide' : 'Show'}
                   >
                     {item.is_active ? <FiEyeOff className="h-4 w-4" /> : <FiEye className="h-4 w-4" />}
                   </button>
                   <button
                     onClick={() => setDeleteId(item.id)}
-                    className="p-2 rounded-lg border border-[var(--color-border)] hover:bg-red-50 dark:hover:bg-red-900/10 text-[var(--color-text-muted)] hover:text-red-500 transition-colors"
+                    className="p-2 rounded-lg border border-[var(--border)] hover:bg-red-50 dark:hover:bg-red-900/10 text-[var(--text-muted)] hover:text-red-500 transition-colors"
                   >
                     <FiTrash2 className="h-4 w-4" />
                   </button>
@@ -200,7 +200,7 @@ export function AdminConstructionPage() {
       )}
 
       {items.length === 0 && !loading && (
-        <div className="text-center py-16 text-[var(--color-text-muted)]">
+        <div className="text-center py-16 text-[var(--text-muted)]">
           <p>No services yet. Click "New Service" to add one.</p>
         </div>
       )}
@@ -209,15 +209,15 @@ export function AdminConstructionPage() {
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/60 p-4 overflow-y-auto" onClick={() => setShowForm(false)}>
           <div
-            className="bg-[var(--color-surface)] rounded-2xl w-full max-w-lg shadow-2xl my-8"
+            className="bg-[var(--surface)] rounded-2xl w-full max-w-lg shadow-2xl my-8"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-4 rounded-t-2xl">
-              <h2 className="font-display text-lg font-bold text-[var(--color-text)]">
+            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-[var(--border)] bg-[var(--surface)] px-6 py-4 rounded-t-2xl">
+              <h2 className="font-display text-lg font-bold text-[var(--text)]">
                 {editItem ? 'Edit Service' : 'New Service'}
               </h2>
               <button onClick={() => setShowForm(false)}>
-                <FiX className="h-5 w-5 text-[var(--color-text-muted)]" />
+                <FiX className="h-5 w-5 text-[var(--text-muted)]" />
               </button>
             </div>
 
@@ -266,9 +266,9 @@ export function AdminConstructionPage() {
                     type="checkbox"
                     checked={form.is_active}
                     onChange={(e) => f('is_active', e.target.checked)}
-                    className="h-4 w-4 rounded accent-[var(--color-brand-gold)]"
+                    className="h-4 w-4 rounded accent-[var(--primary)]"
                   />
-                  <span className="text-sm text-[var(--color-text)]">Active (visible on website)</span>
+                  <span className="text-sm text-[var(--text)]">Active (visible on website)</span>
                 </label>
               </div>
 
@@ -287,9 +287,9 @@ export function AdminConstructionPage() {
       {/* Delete Confirm */}
       {deleteId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" onClick={() => setDeleteId(null)}>
-          <div className="bg-[var(--color-surface)] rounded-2xl p-6 w-full max-w-sm shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <h3 className="font-display text-lg font-bold text-[var(--color-text)] mb-2">Delete Service?</h3>
-            <p className="text-sm text-[var(--color-text-muted)] mb-5">This will permanently remove this construction service.</p>
+          <div className="bg-[var(--surface)] rounded-2xl p-6 w-full max-w-sm shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <h3 className="font-display text-lg font-bold text-[var(--text)] mb-2">Delete Service?</h3>
+            <p className="text-sm text-[var(--text-muted)] mb-5">This will permanently remove this construction service.</p>
             <div className="flex gap-3">
               <Button variant="outline" className="flex-1" onClick={() => setDeleteId(null)}>Cancel</Button>
               <Button variant="destructive" className="flex-1" onClick={handleDelete}>Delete</Button>

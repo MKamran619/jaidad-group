@@ -37,7 +37,7 @@ export function AdminLoginPage() {
       <div className="absolute inset-0 opacity-20">
         <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1920&q=30" alt="" className="h-full w-full object-cover" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-black/80 to-[var(--color-brand-gold)]/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-black/80 to-[var(--primary)]/10" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export function AdminLoginPage() {
         <div className="glass rounded-3xl p-10 shadow-2xl border border-white/10">
           {/* Logo */}
           <div className="text-center mb-8">
-            <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-brand-gold)] shadow-lg mb-4">
+            <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--primary)] shadow-lg mb-4">
               <span className="font-display font-black text-white text-2xl">J+</span>
             </div>
             <h1 className="font-display text-2xl font-bold text-white">Admin Portal</h1>
@@ -68,7 +68,7 @@ export function AdminLoginPage() {
                 <input
                   type="email"
                   placeholder="admin@jaidadgroup.com"
-                  className="flex h-11 w-full rounded-xl border border-white/20 bg-white/10 px-4 pl-10 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)] focus:border-transparent"
+                  className="flex h-11 w-full rounded-xl border border-white/20 bg-white/10 px-4 pl-10 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
                   {...register('email')}
                 />
               </div>
@@ -82,7 +82,7 @@ export function AdminLoginPage() {
                 <input
                   type={showPwd ? 'text' : 'password'}
                   placeholder="••••••••"
-                  className="flex h-11 w-full rounded-xl border border-white/20 bg-white/10 px-4 pl-10 pr-10 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-gold)] focus:border-transparent"
+                  className="flex h-11 w-full rounded-xl border border-white/20 bg-white/10 px-4 pl-10 pr-10 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
                   {...register('password')}
                 />
                 <button type="button" onClick={() => setShowPwd(!showPwd)} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white">

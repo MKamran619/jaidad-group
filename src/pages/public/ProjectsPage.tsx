@@ -27,13 +27,13 @@ const STATUS_VARIANTS: Record<string, 'gold' | 'info' | 'success'> = {
 
 function ProjectCardSkeleton() {
   return (
-    <div className="rounded-3xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
-      <div className="h-72 bg-[var(--color-background)] shimmer" />
+    <div className="rounded-3xl overflow-hidden border border-[var(--border)] bg-[var(--surface)]">
+      <div className="h-72 bg-[var(--background)] shimmer" />
       <div className="p-6 space-y-3">
-        <div className="h-5 w-3/4 rounded bg-[var(--color-background)] shimmer" />
-        <div className="h-4 w-1/2 rounded bg-[var(--color-background)] shimmer" />
-        <div className="h-4 w-full rounded bg-[var(--color-background)] shimmer" />
-        <div className="h-4 w-5/6 rounded bg-[var(--color-background)] shimmer" />
+        <div className="h-5 w-3/4 rounded bg-[var(--background)] shimmer" />
+        <div className="h-4 w-1/2 rounded bg-[var(--background)] shimmer" />
+        <div className="h-4 w-full rounded bg-[var(--background)] shimmer" />
+        <div className="h-4 w-5/6 rounded bg-[var(--background)] shimmer" />
       </div>
     </div>
   )
@@ -74,9 +74,9 @@ export function ProjectsPage() {
         />
         <div className="relative container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <p className="text-[var(--color-brand-gold)] text-xs font-bold uppercase tracking-widest mb-4">Our Developments</p>
+            <p className="text-[var(--primary)] text-xs font-bold uppercase tracking-widest mb-4">Our Developments</p>
             <h1 className="font-display text-4xl md:text-6xl font-black text-white mb-6">
-              Premium <span className="text-[var(--color-brand-gold)]">Projects</span>
+              Premium <span className="text-[var(--primary)]">Projects</span>
             </h1>
             <p className="text-white/70 text-lg max-w-2xl mx-auto">
               World-class residential and commercial developments reshaping Pakistan's urban landscape.
@@ -86,7 +86,7 @@ export function ProjectsPage() {
       </div>
 
       {/* Filter */}
-      <div className="bg-[var(--color-surface)] border-b border-[var(--color-border)] sticky top-[73px] z-10">
+      <div className="bg-[var(--surface)] border-b border-[var(--border)] sticky top-[73px] z-10">
         <div className="container mx-auto px-4">
           <div className="flex gap-1 py-3 overflow-x-auto scrollbar-none">
             {STATUS_TABS.map((tab) => (
@@ -96,8 +96,8 @@ export function ProjectsPage() {
                 className={cn(
                   'px-5 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap flex-shrink-0',
                   activeTab === tab.value
-                    ? 'bg-[var(--color-brand-gold)] text-white'
-                    : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-background)]'
+                    ? 'bg-[var(--primary)] text-white'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--background)]'
                 )}
               >
                 {tab.label}
@@ -108,7 +108,7 @@ export function ProjectsPage() {
       </div>
 
       {/* Grid */}
-      <div className="section-padding bg-[var(--color-background)]">
+      <div className="section-padding bg-[var(--background)]">
         <div className="container mx-auto px-4">
           {isLoading ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -130,7 +130,7 @@ export function ProjectsPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="group rounded-3xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] hover:shadow-2xl transition-all duration-500"
+                    className="group rounded-3xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] hover:shadow-2xl transition-all duration-500"
                   >
                     <div className="relative h-72 overflow-hidden">
                       {project.images[0] ? (
@@ -159,7 +159,7 @@ export function ProjectsPage() {
                           </div>
                           <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                             <motion.div
-                              className="h-full bg-[var(--color-brand-gold)] rounded-full"
+                              className="h-full bg-[var(--primary)] rounded-full"
                               initial={{ width: 0 }}
                               whileInView={{ width: `${project.completion_percentage}%` }}
                               viewport={{ once: true }}
@@ -171,41 +171,41 @@ export function ProjectsPage() {
                     </div>
 
                     <div className="p-6">
-                      <h3 className="font-display text-xl font-bold text-[var(--color-text)] group-hover:text-[var(--color-brand-gold)] transition-colors mb-2">
+                      <h3 className="font-display text-xl font-bold text-[var(--text)] group-hover:text-[var(--primary)] transition-colors mb-2">
                         {project.title}
                       </h3>
-                      <div className="flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] mb-3">
-                        <FiMapPin className="h-4 w-4 text-[var(--color-brand-gold)] flex-shrink-0" />
+                      <div className="flex items-center gap-1.5 text-sm text-[var(--text-muted)] mb-3">
+                        <FiMapPin className="h-4 w-4 text-[var(--primary)] flex-shrink-0" />
                         {project.location}
                       </div>
-                      <p className="text-sm text-[var(--color-text-muted)] line-clamp-2 mb-5">{project.description}</p>
+                      <p className="text-sm text-[var(--text-muted)] line-clamp-2 mb-5">{project.description}</p>
 
                       <div className="grid grid-cols-3 gap-3 mb-5">
                         {project.total_units != null && (
-                          <div className="text-center p-3 rounded-xl bg-[var(--color-background)]">
-                            <p className="font-bold text-[var(--color-text)] text-sm">{project.total_units}</p>
-                            <p className="text-xs text-[var(--color-text-muted)]">Total Units</p>
+                          <div className="text-center p-3 rounded-xl bg-[var(--background)]">
+                            <p className="font-bold text-[var(--text)] text-sm">{project.total_units}</p>
+                            <p className="text-xs text-[var(--text-muted)]">Total Units</p>
                           </div>
                         )}
                         {project.available_units != null && (
-                          <div className="text-center p-3 rounded-xl bg-[var(--color-background)]">
-                            <p className="font-bold text-[var(--color-brand-gold)] text-sm">{project.available_units}</p>
-                            <p className="text-xs text-[var(--color-text-muted)]">Available</p>
+                          <div className="text-center p-3 rounded-xl bg-[var(--background)]">
+                            <p className="font-bold text-[var(--primary)] text-sm">{project.available_units}</p>
+                            <p className="text-xs text-[var(--text-muted)]">Available</p>
                           </div>
                         )}
                         {project.completion_date && (
-                          <div className="text-center p-3 rounded-xl bg-[var(--color-background)]">
-                            <p className="font-bold text-[var(--color-text)] text-sm flex items-center justify-center gap-1">
+                          <div className="text-center p-3 rounded-xl bg-[var(--background)]">
+                            <p className="font-bold text-[var(--text)] text-sm flex items-center justify-center gap-1">
                               <FiCalendar className="h-3 w-3" />
                               {new Date(project.completion_date).getFullYear()}
                             </p>
-                            <p className="text-xs text-[var(--color-text-muted)]">Delivery</p>
+                            <p className="text-xs text-[var(--text-muted)]">Delivery</p>
                           </div>
                         )}
                       </div>
 
                       {project.starting_price != null && (
-                        <p className="font-display text-lg font-black text-[var(--color-brand-gold)] mb-4">
+                        <p className="font-display text-lg font-black text-[var(--primary)] mb-4">
                           Starting from {formatPrice(project.starting_price, 'PKR')}
                         </p>
                       )}
@@ -238,7 +238,7 @@ export function ProjectsPage() {
 
           {!isLoading && projects.length === 0 && (
             <div className="text-center py-24">
-              <p className="text-[var(--color-text-muted)] text-lg">No projects found for this category.</p>
+              <p className="text-[var(--text-muted)] text-lg">No projects found for this category.</p>
             </div>
           )}
         </div>

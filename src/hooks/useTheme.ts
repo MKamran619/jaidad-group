@@ -1,29 +1,41 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { THEMES, DEFAULT_THEME_ID, getTheme } from '@/lib/themes'
 
-type Theme = 'light' | 'dark'
+const STORAGE_KEY = 'selectedTheme'
+
+function applyTheme(themeId: string) {
+  const theme = getTheme(themeId)
+  if (!theme) return
+  const root = document.documentElement
+  root.setAttribute('data-theme', theme.id)
+  root.classList.toggle('dark', !theme.isLight)
+  document.body.classList.remove('light-mode', 'dark-mode')
+  document.body.classList.add(theme.isLight ? 'light-mode' : 'dark-mode')
+}
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const stored = localStorage.getItem('jaidad-theme') as Theme | null
-    if (stored) return stored
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  const [themeId, setThemeId] = useState<string>(() => {
+    if (typeof window === 'undefined') return DEFAULT_THEME_ID
+    return localStorage.getItem(STORAGE_KEY) || DEFAULT_THEME_ID
   })
 
   useEffect(() => {
-    const root = document.documentElement
-    if (theme === 'dark') {
-      root.classList.add('dark')
-    } else {
-      root.classList.remove('dark')
-    }
-    localStorage.setItem('jaidad-theme', theme)
-  }, [theme])
+    applyTheme(themeId)
+    localStorage.setItem(STORAGE_KEY, themeId)
+  }, [themeId])
+
+  const setTheme = useCallback((id: string) => {
+    if (getTheme(id)) setThemeId(id)
+  }, [])
+
+  const theme = getTheme(themeId) ?? THEMES[0]
 
   return {
     theme,
-    isDark: theme === 'dark',
-    isLight: theme === 'light',
-    toggle: () => setTheme((t) => (t === 'dark' ? 'light' : 'dark')),
+    themeId,
+    isDark: !theme.isLight,
+    isLight: theme.isLight,
     setTheme,
+    themes: THEMES,
   }
 }

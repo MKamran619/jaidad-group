@@ -12,12 +12,12 @@ import { useSettings } from '@/hooks/useSettings'
 
 function BlogSkeleton() {
   return (
-    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] overflow-hidden">
-      <div className="h-48 bg-[var(--color-surface)] shimmer" />
+    <div className="rounded-2xl border border-[var(--border)] bg-[var(--background)] overflow-hidden">
+      <div className="h-48 bg-[var(--surface)] shimmer" />
       <div className="p-6 space-y-3">
-        <div className="h-3 w-24 rounded bg-[var(--color-surface)] shimmer" />
-        <div className="h-5 w-full rounded bg-[var(--color-surface)] shimmer" />
-        <div className="h-4 w-3/4 rounded bg-[var(--color-surface)] shimmer" />
+        <div className="h-3 w-24 rounded bg-[var(--surface)] shimmer" />
+        <div className="h-5 w-full rounded bg-[var(--surface)] shimmer" />
+        <div className="h-4 w-3/4 rounded bg-[var(--surface)] shimmer" />
       </div>
     </div>
   )
@@ -44,7 +44,7 @@ export function LatestBlogs() {
   if (!isLoading && (!blogs || blogs.length === 0)) return null
 
   return (
-    <section className="section-padding bg-[var(--color-surface)]">
+    <section className="section-padding bg-[var(--surface)]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <SectionHeader
@@ -70,7 +70,7 @@ export function LatestBlogs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="group rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] overflow-hidden hover:shadow-lg transition-all duration-300"
+                  className="group rounded-2xl border border-[var(--border)] bg-[var(--background)] overflow-hidden hover:shadow-lg transition-all duration-300"
                 >
                   <Link to={`/blog/${blog.slug}`} className="block relative overflow-hidden h-48">
                     {blog.cover_image ? (
@@ -81,8 +81,8 @@ export function LatestBlogs() {
                         loading="lazy"
                       />
                     ) : (
-                      <div className="h-full w-full bg-[var(--color-surface)] flex items-center justify-center">
-                        <span className="text-[var(--color-text-muted)] text-sm">No image</span>
+                      <div className="h-full w-full bg-[var(--surface)] flex items-center justify-center">
+                        <span className="text-[var(--text-muted)] text-sm">No image</span>
                       </div>
                     )}
                     <div className="absolute top-3 left-3">
@@ -91,7 +91,7 @@ export function LatestBlogs() {
                   </Link>
 
                   <div className="p-6">
-                    <div className="flex items-center gap-4 text-xs text-[var(--color-text-muted)] mb-3">
+                    <div className="flex items-center gap-4 text-xs text-[var(--text-muted)] mb-3">
                       <span className="flex items-center gap-1">
                         <FiCalendar className="h-3 w-3" />
                         {formatDate(blog.published_at ?? blog.created_at)}
@@ -104,16 +104,16 @@ export function LatestBlogs() {
 
                     <Link
                       to={`/blog/${blog.slug}`}
-                      className="font-display font-bold text-[var(--color-text)] text-base hover:text-[var(--color-brand-gold)] transition-colors line-clamp-2 leading-snug mb-3 block"
+                      className="font-display font-bold text-[var(--text)] text-base hover:text-[var(--primary)] transition-colors line-clamp-2 leading-snug mb-3 block"
                     >
                       {blog.title}
                     </Link>
 
-                    <p className="text-sm text-[var(--color-text-muted)] line-clamp-2 mb-4">{blog.excerpt}</p>
+                    <p className="text-sm text-[var(--text-muted)] line-clamp-2 mb-4">{blog.excerpt}</p>
 
                     <Link
                       to={`/blog/${blog.slug}`}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-brand-gold)] hover:gap-2.5 transition-all"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--primary)] hover:gap-2.5 transition-all"
                     >
                       Read More <FiArrowRight className="h-3.5 w-3.5" />
                     </Link>

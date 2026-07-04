@@ -62,7 +62,7 @@ export function ContactPage() {
       <div className="bg-[var(--color-brand-black)] py-20">
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-brand-gold)] mb-3">Get in Touch</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)] mb-3">Get in Touch</p>
             <h1 className="font-display text-4xl md:text-5xl font-black text-white mb-4">Contact <span className="gradient-text">Us</span></h1>
             <p className="text-white/60 max-w-xl mx-auto">Our team is here to help you find your perfect property. Reach out anytime.</p>
           </motion.div>
@@ -76,15 +76,15 @@ export function ContactPage() {
             <div className="space-y-6">
               {offices.length > 0 && (
                 <div>
-                  <h2 className="font-display text-xl font-bold text-[var(--color-text)] mb-5">Our Offices</h2>
+                  <h2 className="font-display text-xl font-bold text-[var(--text)] mb-5">Our Offices</h2>
                   <div className="space-y-5">
                     {offices.map((office) => (
-                      <div key={office.city} className="p-5 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-                        <h3 className="font-semibold text-[var(--color-text)] mb-3">{office.city}</h3>
-                        <div className="space-y-2 text-sm text-[var(--color-text-muted)]">
-                          <div className="flex gap-2"><FiMapPin className="h-4 w-4 text-[var(--color-brand-gold)] flex-shrink-0 mt-0.5" />{office.address}</div>
-                          <div className="flex gap-2"><FiPhone className="h-4 w-4 text-[var(--color-brand-gold)] flex-shrink-0 mt-0.5" /><a href={`tel:${office.phone}`} className="hover:text-[var(--color-brand-gold)]">{office.phone}</a></div>
-                          <div className="flex gap-2"><FiClock className="h-4 w-4 text-[var(--color-brand-gold)] flex-shrink-0 mt-0.5" />{office.hours}</div>
+                      <div key={office.city} className="p-5 rounded-2xl border border-[var(--border)] bg-[var(--surface)]">
+                        <h3 className="font-semibold text-[var(--text)] mb-3">{office.city}</h3>
+                        <div className="space-y-2 text-sm text-[var(--text-muted)]">
+                          <div className="flex gap-2"><FiMapPin className="h-4 w-4 text-[var(--primary)] flex-shrink-0 mt-0.5" />{office.address}</div>
+                          <div className="flex gap-2"><FiPhone className="h-4 w-4 text-[var(--primary)] flex-shrink-0 mt-0.5" /><a href={`tel:${office.phone}`} className="hover:text-[var(--primary)]">{office.phone}</a></div>
+                          <div className="flex gap-2"><FiClock className="h-4 w-4 text-[var(--primary)] flex-shrink-0 mt-0.5" />{office.hours}</div>
                         </div>
                       </div>
                     ))}
@@ -94,13 +94,13 @@ export function ContactPage() {
 
               <div className="space-y-3">
                 {email && (
-                  <a href={`mailto:${email}`} className="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-brand-gold)] transition-colors">
-                    <div className="h-10 w-10 rounded-lg bg-[var(--color-brand-gold)]/10 flex items-center justify-center">
-                      <FiMail className="h-5 w-5 text-[var(--color-brand-gold)]" />
+                  <a href={`mailto:${email}`} className="flex items-center gap-3 p-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--primary)] transition-colors">
+                    <div className="h-10 w-10 rounded-lg bg-[var(--primary)]/10 flex items-center justify-center">
+                      <FiMail className="h-5 w-5 text-[var(--primary)]" />
                     </div>
                     <div>
-                      <p className="text-xs text-[var(--color-text-muted)]">Email Us</p>
-                      <p className="text-sm font-medium text-[var(--color-text)]">{email}</p>
+                      <p className="text-xs text-[var(--text-muted)]">Email Us</p>
+                      <p className="text-sm font-medium text-[var(--text)]">{email}</p>
                     </div>
                   </a>
                 )}
@@ -110,8 +110,8 @@ export function ContactPage() {
                       <FaWhatsapp className="h-5 w-5 text-green-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-[var(--color-text-muted)]">WhatsApp</p>
-                      <p className="text-sm font-medium text-[var(--color-text)]">+{whatsapp}</p>
+                      <p className="text-xs text-[var(--text-muted)]">WhatsApp</p>
+                      <p className="text-sm font-medium text-[var(--text)]">+{whatsapp}</p>
                     </div>
                   </a>
                 )}
@@ -120,16 +120,16 @@ export function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8">
-                <h2 className="font-display text-2xl font-bold text-[var(--color-text)] mb-6">Send Us a Message</h2>
+              <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8">
+                <h2 className="font-display text-2xl font-bold text-[var(--text)] mb-6">Send Us a Message</h2>
 
                 {submitted ? (
                   <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-12">
                     <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 mb-4">
                       <FiCheckCircle className="h-8 w-8 text-green-600" />
                     </div>
-                    <h3 className="font-display text-xl font-bold text-[var(--color-text)] mb-2">Message Sent!</h3>
-                    <p className="text-[var(--color-text-muted)] mb-5">Our team will get back to you within 24 hours.</p>
+                    <h3 className="font-display text-xl font-bold text-[var(--text)] mb-2">Message Sent!</h3>
+                    <p className="text-[var(--text-muted)] mb-5">Our team will get back to you within 24 hours.</p>
                     <Button variant="outline" onClick={() => setSubmitted(false)}>Send Another</Button>
                   </motion.div>
                 ) : (
@@ -168,10 +168,10 @@ export function ContactPage() {
       </section>
 
       {/* Map placeholder */}
-      <div className="h-80 bg-[var(--color-surface)] border-t border-[var(--color-border)] flex items-center justify-center">
+      <div className="h-80 bg-[var(--surface)] border-t border-[var(--border)] flex items-center justify-center">
         <div className="text-center">
-          <FiMapPin className="h-10 w-10 mx-auto mb-3 text-[var(--color-brand-gold)]" />
-          <p className="text-[var(--color-text-muted)] text-sm">Map will appear once Google Maps URL is set in settings</p>
+          <FiMapPin className="h-10 w-10 mx-auto mb-3 text-[var(--primary)]" />
+          <p className="text-[var(--text-muted)] text-sm">Map will appear once Google Maps URL is set in settings</p>
         </div>
       </div>
     </>

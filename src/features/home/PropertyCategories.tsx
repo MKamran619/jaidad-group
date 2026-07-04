@@ -36,7 +36,7 @@ export function PropertyCategories() {
   })
 
   return (
-    <section className="section-padding bg-[var(--color-surface)]">
+    <section className="section-padding bg-[var(--surface)]">
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Browse by Type"
@@ -69,13 +69,13 @@ export function PropertyCategories() {
                       loading="lazy"
                     />
                   ) : (
-                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-black)] via-[var(--color-brand-black)] to-[var(--color-brand-gold)]/20" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-black)] via-[var(--color-brand-black)] to-[var(--primary)]/20" />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 group-hover:from-black/90 transition-all" />
                   <div className="relative z-10 flex flex-col items-center gap-1">
                     <span className="font-display font-bold text-white text-sm">{cat.label}</span>
                     {count != null && count > 0 && (
-                      <span className="text-[var(--color-brand-gold)] text-xs font-semibold">{count}+</span>
+                      <span className="text-[var(--primary)] text-xs font-semibold">{count}+</span>
                     )}
                   </div>
                 </Link>

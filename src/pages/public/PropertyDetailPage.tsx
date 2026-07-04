@@ -46,9 +46,9 @@ export function PropertyDetailPage() {
   if (!property) {
     return (
       <div className="container mx-auto px-4 py-32 text-center">
-        <p className="text-4xl font-black text-[var(--color-text)] mb-4">Property Not Found</p>
-        <p className="text-[var(--color-text-muted)] mb-8">This listing may have been removed or the link is incorrect.</p>
-        <Link to="/properties" className="inline-block px-6 py-3 bg-[var(--color-brand-gold)] text-white rounded-xl font-semibold hover:opacity-90 transition-opacity">
+        <p className="text-4xl font-black text-[var(--text)] mb-4">Property Not Found</p>
+        <p className="text-[var(--text-muted)] mb-8">This listing may have been removed or the link is incorrect.</p>
+        <Link to="/properties" className="inline-block px-6 py-3 bg-[var(--primary)] text-white rounded-xl font-semibold hover:opacity-90 transition-opacity">
           Browse Properties
         </Link>
       </div>
@@ -66,13 +66,13 @@ export function PropertyDetailPage() {
       </Helmet>
 
       {/* Breadcrumb */}
-      <div className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-        <div className="container mx-auto px-4 py-3 flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
-          <Link to="/" className="hover:text-[var(--color-brand-gold)]">Home</Link>
+      <div className="border-b border-[var(--border)] bg-[var(--surface)]">
+        <div className="container mx-auto px-4 py-3 flex items-center gap-2 text-xs text-[var(--text-muted)]">
+          <Link to="/" className="hover:text-[var(--primary)]">Home</Link>
           <FiChevronRight className="h-3 w-3" />
-          <Link to="/properties" className="hover:text-[var(--color-brand-gold)]">Properties</Link>
+          <Link to="/properties" className="hover:text-[var(--primary)]">Properties</Link>
           <FiChevronRight className="h-3 w-3" />
-          <span className="text-[var(--color-text)] truncate">{prop.title}</span>
+          <span className="text-[var(--text)] truncate">{prop.title}</span>
         </div>
       </div>
 
@@ -94,8 +94,8 @@ export function PropertyDetailPage() {
                   </SwiperSlide>
                 )) : (
                   <SwiperSlide>
-                    <div className="h-full w-full bg-[var(--color-surface)] flex items-center justify-center">
-                      <span className="text-[var(--color-text-muted)] text-sm">No images available</span>
+                    <div className="h-full w-full bg-[var(--surface)] flex items-center justify-center">
+                      <span className="text-[var(--text-muted)] text-sm">No images available</span>
                     </div>
                   </SwiperSlide>
                 )}
@@ -128,9 +128,9 @@ export function PropertyDetailPage() {
                   </Badge>
                   <Badge variant="secondary" className="capitalize">{prop.property_type}</Badge>
                 </div>
-                <h1 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-text)]">{prop.title}</h1>
-                <div className="flex items-center gap-1.5 mt-2 text-sm text-[var(--color-text-muted)]">
-                  <FiMapPin className="h-4 w-4 text-[var(--color-brand-gold)]" />
+                <h1 className="font-display text-2xl md:text-3xl font-bold text-[var(--text)]">{prop.title}</h1>
+                <div className="flex items-center gap-1.5 mt-2 text-sm text-[var(--text-muted)]">
+                  <FiMapPin className="h-4 w-4 text-[var(--primary)]" />
                   {prop.address}
                 </div>
               </div>
@@ -149,11 +149,11 @@ export function PropertyDetailPage() {
             <Card>
               <div className="p-6">
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                  <p className="font-display text-3xl font-black text-[var(--color-brand-gold)]">
+                  <p className="font-display text-3xl font-black text-[var(--primary)]">
                     {formatPrice(prop.price, prop.currency)}
                   </p>
                   {prop.area_unit === 'marla' && (
-                    <p className="text-sm text-[var(--color-text-muted)]">
+                    <p className="text-sm text-[var(--text-muted)]">
                       PKR {Math.round(prop.price / prop.area).toLocaleString()} per Marla
                     </p>
                   )}
@@ -165,10 +165,10 @@ export function PropertyDetailPage() {
                     { icon: Maximize2, label: 'Area', value: formatArea(prop.area, prop.area_unit) },
                     { icon: FiHome, label: 'Year Built', value: prop.year_built ?? 'N/A' },
                   ].map((item) => (
-                    <div key={item.label} className="flex flex-col items-center text-center gap-1.5 p-4 rounded-xl bg-[var(--color-surface)]">
-                      <item.icon className="h-5 w-5 text-[var(--color-brand-gold)]" />
-                      <span className="font-bold text-[var(--color-text)]">{item.value}</span>
-                      <span className="text-xs text-[var(--color-text-muted)]">{item.label}</span>
+                    <div key={item.label} className="flex flex-col items-center text-center gap-1.5 p-4 rounded-xl bg-[var(--surface)]">
+                      <item.icon className="h-5 w-5 text-[var(--primary)]" />
+                      <span className="font-bold text-[var(--text)]">{item.value}</span>
+                      <span className="text-xs text-[var(--text-muted)]">{item.label}</span>
                     </div>
                   ))}
                 </div>
@@ -177,18 +177,18 @@ export function PropertyDetailPage() {
 
             {/* Description */}
             <div>
-              <h2 className="font-display text-xl font-bold text-[var(--color-text)] mb-4">About This Property</h2>
-              <p className="text-[var(--color-text-muted)] leading-relaxed text-sm">{prop.description}</p>
+              <h2 className="font-display text-xl font-bold text-[var(--text)] mb-4">About This Property</h2>
+              <p className="text-[var(--text-muted)] leading-relaxed text-sm">{prop.description}</p>
             </div>
 
             {/* Features */}
             {prop.features?.length > 0 && (
               <div>
-                <h2 className="font-display text-xl font-bold text-[var(--color-text)] mb-4">Features</h2>
+                <h2 className="font-display text-xl font-bold text-[var(--text)] mb-4">Features</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {prop.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
-                      <FiCheckCircle className="h-4 w-4 text-[var(--color-brand-gold)] flex-shrink-0" />
+                    <div key={f} className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
+                      <FiCheckCircle className="h-4 w-4 text-[var(--primary)] flex-shrink-0" />
                       {f}
                     </div>
                   ))}
@@ -199,7 +199,7 @@ export function PropertyDetailPage() {
             {/* Amenities */}
             {prop.amenities?.length > 0 && (
               <div>
-                <h2 className="font-display text-xl font-bold text-[var(--color-text)] mb-4">Amenities</h2>
+                <h2 className="font-display text-xl font-bold text-[var(--text)] mb-4">Amenities</h2>
                 <div className="flex flex-wrap gap-2">
                   {prop.amenities.map((a) => (
                     <Badge key={a} variant="secondary">{a}</Badge>
@@ -210,13 +210,13 @@ export function PropertyDetailPage() {
 
             {/* Map Placeholder */}
             <div>
-              <h2 className="font-display text-xl font-bold text-[var(--color-text)] mb-4">Location</h2>
-              <div className="h-64 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center">
-                <div className="text-center text-[var(--color-text-muted)]">
-                  <FiMapPin className="h-8 w-8 mx-auto mb-2 text-[var(--color-brand-gold)]" />
+              <h2 className="font-display text-xl font-bold text-[var(--text)] mb-4">Location</h2>
+              <div className="h-64 rounded-2xl bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center">
+                <div className="text-center text-[var(--text-muted)]">
+                  <FiMapPin className="h-8 w-8 mx-auto mb-2 text-[var(--primary)]" />
                   <p className="text-sm">{prop.address}</p>
                   {googleMapsUrl && (
-                    <a href={googleMapsUrl} target="_blank" rel="noreferrer" className="text-xs text-[var(--color-brand-gold)] hover:underline mt-1 block">
+                    <a href={googleMapsUrl} target="_blank" rel="noreferrer" className="text-xs text-[var(--primary)] hover:underline mt-1 block">
                       Open in Google Maps
                     </a>
                   )}
@@ -231,12 +231,12 @@ export function PropertyDetailPage() {
             <Card className="sticky top-24">
               <div className="p-6 space-y-5">
                 <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full bg-[var(--color-brand-gold)] flex items-center justify-center font-bold text-white text-lg">
+                  <div className="h-12 w-12 rounded-full bg-[var(--primary)] flex items-center justify-center font-bold text-white text-lg">
                     JG
                   </div>
                   <div>
-                    <p className="font-semibold text-[var(--color-text)]">Jaidad Group</p>
-                    <p className="text-xs text-[var(--color-text-muted)]">Certified Property Advisor</p>
+                    <p className="font-semibold text-[var(--text)]">Jaidad Group</p>
+                    <p className="text-xs text-[var(--text-muted)]">Certified Property Advisor</p>
                   </div>
                 </div>
 
@@ -258,8 +258,8 @@ export function PropertyDetailPage() {
                   )}
                 </div>
 
-                <div className="border-t border-[var(--color-border)] pt-4">
-                  <p className="text-sm font-semibold text-[var(--color-text)] mb-3">Send Inquiry</p>
+                <div className="border-t border-[var(--border)] pt-4">
+                  <p className="text-sm font-semibold text-[var(--text)] mb-3">Send Inquiry</p>
                   <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                     <Input placeholder="Your Name" required />
                     <Input type="email" placeholder="Email Address" required />

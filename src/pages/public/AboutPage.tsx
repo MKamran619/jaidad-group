@@ -49,7 +49,7 @@ export function AboutPage() {
         )}
         <div className="container relative mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-brand-gold)] mb-3">Our Story</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)] mb-3">Our Story</p>
             <h1 className="font-display text-4xl md:text-6xl font-black text-white mb-5">
               About <span className="gradient-text">J+ Jaidad Group</span>
             </h1>
@@ -73,33 +73,33 @@ export function AboutPage() {
                     className="rounded-2xl shadow-2xl w-full object-cover h-96"
                   />
                 ) : (
-                  <div className="rounded-2xl w-full h-96 bg-[var(--color-surface)] border border-[var(--color-border)]" />
+                  <div className="rounded-2xl w-full h-96 bg-[var(--surface)] border border-[var(--border)]" />
                 )}
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
-                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[var(--color-brand-gold)]">
-                  <span className="h-px w-8 bg-[var(--color-brand-gold)]" />
+                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
+                  <span className="h-px w-8 bg-[var(--primary)]" />
                   Our Journey
                 </div>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-[var(--color-text)]">
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-[var(--text)]">
                   Building Pakistan's Most Trusted Real Estate Group
                 </h2>
-                {story1 && <p className="text-[var(--color-text-muted)] leading-relaxed">{story1}</p>}
-                {story2 && <p className="text-[var(--color-text-muted)] leading-relaxed">{story2}</p>}
+                {story1 && <p className="text-[var(--text-muted)] leading-relaxed">{story1}</p>}
+                {story2 && <p className="text-[var(--text-muted)] leading-relaxed">{story2}</p>}
                 {(mission || vision) && (
                   <div className="grid grid-cols-2 gap-4">
                     {mission && (
-                      <div className="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
-                        <FiTarget className="h-5 w-5 text-[var(--color-brand-gold)] mb-2" />
-                        <p className="font-semibold text-[var(--color-text)] text-sm mb-1">Our Mission</p>
-                        <p className="text-xs text-[var(--color-text-muted)]">{mission}</p>
+                      <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+                        <FiTarget className="h-5 w-5 text-[var(--primary)] mb-2" />
+                        <p className="font-semibold text-[var(--text)] text-sm mb-1">Our Mission</p>
+                        <p className="text-xs text-[var(--text-muted)]">{mission}</p>
                       </div>
                     )}
                     {vision && (
-                      <div className="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
-                        <FiEye className="h-5 w-5 text-[var(--color-brand-gold)] mb-2" />
-                        <p className="font-semibold text-[var(--color-text)] text-sm mb-1">Our Vision</p>
-                        <p className="text-xs text-[var(--color-text-muted)]">{vision}</p>
+                      <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+                        <FiEye className="h-5 w-5 text-[var(--primary)] mb-2" />
+                        <p className="font-semibold text-[var(--text)] text-sm mb-1">Our Vision</p>
+                        <p className="text-xs text-[var(--text-muted)]">{vision}</p>
                       </div>
                     )}
                   </div>
@@ -114,11 +114,11 @@ export function AboutPage() {
 
       {/* Timeline */}
       {milestones.length > 0 && (
-        <section className="section-padding bg-[var(--color-surface)]">
+        <section className="section-padding bg-[var(--surface)]">
           <div className="container mx-auto px-4">
             <SectionHeader label="Our History" title="Company" highlightedWord="Milestones" />
             <div className="relative max-w-3xl mx-auto">
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-[var(--color-border)]" />
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-[var(--border)]" />
               <div className="space-y-8">
                 {milestones.map((m, i) => (
                   <motion.div
@@ -129,12 +129,12 @@ export function AboutPage() {
                     transition={{ delay: i * 0.1 }}
                     className="relative flex gap-6 pl-14"
                   >
-                    <div className="absolute left-3 top-1.5 h-6 w-6 rounded-full bg-[var(--color-brand-gold)] flex items-center justify-center">
+                    <div className="absolute left-3 top-1.5 h-6 w-6 rounded-full bg-[var(--primary)] flex items-center justify-center">
                       <div className="h-2 w-2 rounded-full bg-white" />
                     </div>
                     <div>
-                      <span className="font-display text-lg font-black text-[var(--color-brand-gold)]">{m.year}</span>
-                      <p className="text-[var(--color-text)] font-medium mt-0.5">{m.event}</p>
+                      <span className="font-display text-lg font-black text-[var(--primary)]">{m.year}</span>
+                      <p className="text-[var(--text)] font-medium mt-0.5">{m.event}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -152,7 +152,7 @@ export function AboutPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {isLoading
                 ? Array.from({ length: 4 }).map((_, i) => (
-                    <div key={i} className="rounded-2xl aspect-square shimmer bg-[var(--color-surface)]" />
+                    <div key={i} className="rounded-2xl aspect-square shimmer bg-[var(--surface)]" />
                   ))
                 : team.map((member, i) => (
                     <motion.div
@@ -163,7 +163,7 @@ export function AboutPage() {
                       transition={{ delay: i * 0.1 }}
                       className="text-center group"
                     >
-                      <div className="relative overflow-hidden rounded-2xl mb-4 aspect-square bg-[var(--color-surface)]">
+                      <div className="relative overflow-hidden rounded-2xl mb-4 aspect-square bg-[var(--surface)]">
                         {member.image ? (
                           <img
                             src={member.image}
@@ -172,14 +172,14 @@ export function AboutPage() {
                             loading="lazy"
                           />
                         ) : (
-                          <div className="h-full w-full bg-[var(--color-brand-gold)] flex items-center justify-center text-white text-3xl font-black">
+                          <div className="h-full w-full bg-[var(--primary)] flex items-center justify-center text-white text-3xl font-black">
                             {member.name[0]}
                           </div>
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
-                      <h3 className="font-display font-bold text-[var(--color-text)]">{member.name}</h3>
-                      <p className="text-sm text-[var(--color-brand-gold)]">{member.role}</p>
+                      <h3 className="font-display font-bold text-[var(--text)]">{member.name}</h3>
+                      <p className="text-sm text-[var(--primary)]">{member.role}</p>
                     </motion.div>
                   ))}
             </div>

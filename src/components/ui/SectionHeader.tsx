@@ -47,16 +47,16 @@ export function SectionHeader({
       className={cn('flex flex-col gap-3 mb-12', alignClass, className)}
     >
       {label && (
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[var(--color-brand-gold)]">
-          <span className="h-px w-8 bg-[var(--color-brand-gold)]" />
+        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
+          <span className="h-px w-8 bg-[var(--primary)]" />
           {label}
-          <span className="h-px w-8 bg-[var(--color-brand-gold)]" />
+          <span className="h-px w-8 bg-[var(--primary)]" />
         </span>
       )}
       <h2
         className={cn(
           'font-display text-3xl font-bold leading-tight md:text-4xl lg:text-5xl',
-          dark ? 'text-white' : 'text-[var(--color-text)]'
+          dark ? 'text-white' : 'text-[var(--text)]'
         )}
       >
         {renderTitle()}
@@ -65,7 +65,7 @@ export function SectionHeader({
         <p
           className={cn(
             'max-w-2xl text-base leading-relaxed',
-            dark ? 'text-white/70' : 'text-[var(--color-text-muted)]'
+            dark ? 'text-white/70' : 'text-[var(--text-muted)]'
           )}
         >
           {description}
