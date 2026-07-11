@@ -10,6 +10,7 @@ import { PropertiesPage } from '@/pages/public/PropertiesPage'
 import { PropertyDetailPage } from '@/pages/public/PropertyDetailPage'
 import { ProjectsPage } from '@/pages/public/ProjectsPage'
 import { ConstructionPage } from '@/pages/public/ConstructionPage'
+import { FiveMarlaConstructionPage } from '@/pages/public/FiveMarlaConstructionPage'
 import { GalleryPage } from '@/pages/public/GalleryPage'
 import { BlogPage } from '@/pages/public/BlogPage'
 import { BlogDetailPage } from '@/pages/public/BlogDetailPage'
@@ -81,9 +82,34 @@ export default function App() {
               <Route index element={<HomePage />} />
               <Route path="properties" element={<PropertiesPage />} />
               <Route path="properties/:slug" element={<PropertyDetailPage />} />
+              <Route path="residential-plots" element={<PropertiesPage />} />
+              <Route path="residential-plots/:section" element={<PropertiesPage />} />
+              <Route path="commercial-plots" element={<PropertiesPage />} />
+              <Route path="commercial-plots/:section" element={<PropertiesPage />} />
+              <Route path="houses" element={<PropertiesPage />} />
+              <Route path="houses/:section" element={<PropertiesPage />} />
+              <Route path="apartments" element={<PropertiesPage />} />
+              <Route path="apartments/:section" element={<PropertiesPage />} />
+              <Route path="agricultural-land" element={<PropertiesPage />} />
+              <Route path="agricultural-land/:section" element={<PropertiesPage />} />
+              <Route path="industrial-land" element={<PropertiesPage />} />
+              <Route path="industrial-land/:section" element={<PropertiesPage />} />
+              <Route path="farmhouses" element={<PropertiesPage />} />
+              <Route path="farmhouses/:section" element={<PropertiesPage />} />
+              <Route path="shop-flat-offices" element={<PropertiesPage />} />
+              <Route path="shop-flat-offices/:section" element={<PropertiesPage />} />
               <Route path="projects" element={<ProjectsPage />} />
               <Route path="projects/:slug" element={<ProjectDetailPage />} />
               <Route path="construction" element={<ConstructionPage />} />
+              <Route path="construction/b-17-mpchs/5-marla-house-construction-in-b-17" element={<FiveMarlaConstructionPage />} />
+              <Route path="construction/:area" element={<ConstructionPage />} />
+              <Route path="construction/:area/:package" element={<ConstructionPage />} />
+              <Route path="marketing" element={<BlogPage />} />
+              <Route path="market-insights" element={<BlogPage />} />
+              <Route path="project-map" element={<ProjectsPage />} />
+              <Route path="location-map" element={<ContactPage />} />
+              <Route path="office-locations" element={<ContactPage />} />
+              <Route path="map-designing" element={<ContactPage />} />
               <Route path="blog" element={<BlogPage />} />
               <Route path="blog/:slug" element={<BlogDetailPage />} />
               <Route path="gallery" element={<GalleryPage />} />

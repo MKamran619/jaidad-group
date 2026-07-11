@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils/cn'
 
 const NAV = [
   { icon: FiGrid, label: 'Dashboard', href: '/admin/dashboard' },
-  { icon: FiHome, label: 'Properties', href: '/admin/properties' },
+  { icon: FiHome, label: 'Residential Plots', href: '/admin/properties' },
   { icon: FiLayers, label: 'Projects', href: '/admin/projects' },
   { icon: FiTool, label: 'Construction', href: '/admin/construction' },
   { icon: FiFileText, label: 'Blogs', href: '/admin/blogs' },
@@ -71,10 +71,10 @@ export function AdminLayout() {
                   to={item.href}
                   className={({ isActive }) =>
                     cn(
-                      'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all',
+                      'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all transform',
                       isActive
                         ? 'bg-[var(--primary)] text-white shadow-sm'
-                        : 'text-[var(--text-muted)] hover:bg-[var(--background)] hover:text-[var(--text)]'
+                        : 'text-[var(--text-muted)] hover:bg-[var(--background)] hover:text-[var(--text)] hover:scale-105'
                     )
                   }
                 >
