@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useSearchParams } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiSearch, FiFilter, FiGrid, FiList, FiX } from 'react-icons/fi'
 import { Input } from '@/components/ui/Input'
@@ -31,13 +31,53 @@ const BEDROOM_OPTIONS = [
 
 export function PropertiesPage() {
   const [params, setParams] = useSearchParams()
+  const location = useLocation()
   const [view, setView] = useState<'grid' | 'list'>('grid')
   const [page, setPage] = useState(1)
 
+  const pathFilters = useMemo(() => {
+    const key = location.pathname.toLowerCase()
+    const mapping: Record<string, { type?: string; purpose?: string; search?: string }> = {
+      '/residential-plots': { type: 'plot' },
+      '/residential-plots/all-residential': { type: 'plot' },
+      '/residential-plots/luxury-plots': { type: 'plot', search: 'luxury' },
+      '/residential-plots/affordable-plots': { type: 'plot', search: 'affordable' },
+      '/commercial-plots': { type: 'commercial' },
+      '/commercial-plots/retail-plots': { type: 'commercial', search: 'retail' },
+      '/commercial-plots/office-sites': { type: 'commercial', search: 'office' },
+      '/commercial-plots/industrial-land': { type: 'industrial' },
+      '/houses': { type: 'house' },
+      '/houses/for-sale': { type: 'house', purpose: 'sale' },
+      '/houses/villas': { type: 'house', search: 'villa' },
+      '/houses/townhouses': { type: 'house', search: 'townhouse' },
+      '/apartments': { type: 'apartment' },
+      '/apartments/studio-apartments': { type: 'apartment', search: 'studio' },
+      '/apartments/1-bedroom-apartments': { type: 'apartment', search: '1-bedroom' },
+      '/apartments/2-bedroom-apartments': { type: 'apartment', search: '2-bedroom' },
+      '/agricultural-land': { type: 'agricultural' },
+      '/agricultural-land/farming-land': { type: 'agricultural' },
+      '/agricultural-land/orchard-land': { type: 'agricultural' },
+      '/agricultural-land/rural-development-land': { type: 'agricultural' },
+      '/industrial-land': { type: 'industrial' },
+      '/industrial-land/factory-sites': { type: 'industrial' },
+      '/industrial-land/warehouse-plots': { type: 'industrial' },
+      '/industrial-land/logistics-yards': { type: 'industrial' },
+      '/farmhouses': { type: 'farmhouse' },
+      '/farmhouses/luxury-farmhouses': { type: 'farmhouse', search: 'luxury' },
+      '/farmhouses/budget-farmhouses': { type: 'farmhouse', search: 'budget' },
+      '/farmhouses/farmhouse-plots': { type: 'farmhouse' },
+      '/shop-flat-offices': { type: 'shop' },
+      '/shop-flat-offices/shops': { type: 'shop' },
+      '/shop-flat-offices/flats': { type: 'apartment', search: 'flats' },
+      '/shop-flat-offices/offices': { type: 'office' },
+    }
+    return mapping[key] ?? {}
+  }, [location.pathname])
+
   const filters = {
-    purpose: params.get('purpose') ?? undefined,
-    type: params.get('type') ?? undefined,
-    search: params.get('search') ?? undefined,
+    purpose: params.get('purpose') ?? pathFilters.purpose,
+    type: params.get('type') ?? pathFilters.type,
+    search: params.get('search') ?? pathFilters.search,
     maxPrice: params.get('maxPrice') ? Number(params.get('maxPrice')) : undefined,
     bedrooms: params.get('bedrooms') ? Number(params.get('bedrooms')) : undefined,
     page,

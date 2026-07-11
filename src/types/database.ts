@@ -10,61 +10,73 @@ export interface Database {
         Row: Property
         Insert: Omit<Property, 'id' | 'created_at' | 'updated_at'>
         Update: Partial<Omit<Property, 'id'>>
+        Relationships: []
       }
       projects: {
         Row: Project
         Insert: Omit<Project, 'id' | 'created_at' | 'updated_at'>
         Update: Partial<Omit<Project, 'id'>>
+        Relationships: []
       }
       blogs: {
         Row: Blog
         Insert: Omit<Blog, 'id' | 'created_at' | 'updated_at'>
         Update: Partial<Omit<Blog, 'id'>>
+        Relationships: []
       }
       testimonials: {
         Row: Testimonial
         Insert: Omit<Testimonial, 'id' | 'created_at'>
         Update: Partial<Omit<Testimonial, 'id'>>
+        Relationships: []
       }
       gallery_items: {
         Row: GalleryItem
         Insert: Omit<GalleryItem, 'id' | 'created_at'>
         Update: Partial<Omit<GalleryItem, 'id'>>
+        Relationships: []
       }
       construction_services: {
         Row: ConstructionService
         Insert: Omit<ConstructionService, 'id' | 'created_at'>
         Update: Partial<Omit<ConstructionService, 'id'>>
+        Relationships: []
       }
       inquiries: {
         Row: Inquiry
         Insert: Omit<Inquiry, 'id' | 'created_at'>
         Update: Partial<Omit<Inquiry, 'id'>>
+        Relationships: []
       }
       site_settings: {
         Row: SiteSetting
         Insert: Omit<SiteSetting, 'id' | 'updated_at'>
         Update: Partial<SiteSetting>
+        Relationships: []
       }
       agents: {
         Row: Agent
         Insert: Omit<Agent, 'id' | 'created_at'>
         Update: Partial<Omit<Agent, 'id'>>
+        Relationships: []
       }
       faqs: {
         Row: FAQ
         Insert: Omit<FAQ, 'id' | 'created_at'>
         Update: Partial<Omit<FAQ, 'id'>>
+        Relationships: []
       }
       cities: {
         Row: City
         Insert: Omit<City, 'id'>
         Update: Partial<City>
+        Relationships: []
       }
       societies: {
         Row: Society
         Insert: Omit<Society, 'id'>
         Update: Partial<Society>
+        Relationships: []
       }
     }
     Views: Record<string, never>

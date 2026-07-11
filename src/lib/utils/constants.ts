@@ -57,14 +57,127 @@ export const SOCIAL_LINKS = {
 } as const
 
 export const NAV_ITEMS = [
-  { label: 'Home', href: '/' },
-  { label: 'Properties', href: '/properties' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Construction', href: '/construction' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  {
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'Construction',
+    href: '/construction',
+    groups: [
+      {
+        title: 'B-17, MPCHS',
+        href: '',
+        items: [
+          { label: '5 Marla House Construction in B 17', href: '/construction/b-17-mpchs/5-marla-house-construction-in-b-17' },
+          { label: '7 Marla House Construction in B 17', href: '/construction/b-17-mpchs/7-marla-house-construction' },
+          { label: '10 Marla House Construction in B 17', href: '/construction/b-17-mpchs/10-marla-house-construction' },
+          { label: '14 Marla House Construction in B 17', href: '/construction/b-17-mpchs/14-marla-house-construction' },
+          { label: '1 Kanal House Construction in B 17', href: '/construction/b-17-mpchs/1-kanal-house-construction' },
+          { label: '2 Kanal House Construction in B 17', href: '/construction/b-17-mpchs/2-kanal-house-construction' },
+        ],
+      },
+      {
+        title: 'Faisal Hills',
+        href: '/construction/faisal-hills',
+        items: [
+          { label: '5 Marla House Construction in Faisal Hills', href: '/construction/faisal-hills/5-marla-house-construction' },
+          { label: '7 Marla House Construction in Faisal Hills', href: '/construction/faisal-hills/7-marla-house-construction' },
+          { label: '10 Marla House Construction in Faisal Hills', href: '/construction/faisal-hills/10-marla-house-construction' },
+          { label: '14 Marla House Construction in Faisal Hills', href: '/construction/faisal-hills/14-marla-house-construction' },
+          { label: '1 Kanal House Construction in Faisal Hills', href: '/construction/faisal-hills/1-kanal-house-construction' },
+          { label: '2 Kanal House Construction in Faisal Hills', href: '/construction/faisal-hills/2-kanal-house-construction' },
+        ],
+      },
+      {
+        title: 'Faisal Margalla City',
+        href: '/construction/faisal-margalla-city',
+        items: [
+          { label: '5 Marla House Construction in Faisal Margalla City', href: '/construction/faisal-margalla-city/5-marla-house-construction' },
+          { label: '7 Marla House Construction in Faisal Margalla City', href: '/construction/faisal-margalla-city/7-marla-house-construction' },
+          { label: '10 Marla House Construction in Faisal Margalla City', href: '/construction/faisal-margalla-city/10-marla-house-construction' },
+          { label: '14 Marla House Construction in Faisal Margalla City', href: '/construction/faisal-margalla-city/14-marla-house-construction' },
+          { label: '1 Kanal House Construction in Faisal Margalla City', href: '/construction/faisal-margalla-city/1-kanal-house-construction' },
+          { label: '2 Kanal House Construction in Faisal Margalla City', href: '/construction/faisal-margalla-city/2-kanal-house-construction' },
+        ],
+      },
+      {
+        title: 'Faisal Town',
+        href: '/construction/faisal-town',
+        items: [
+          { label: '5 Marla House Construction in Faisal Town', href: '/construction/faisal-town/5-marla-house-construction' },
+          { label: '7 Marla House Construction in Faisal Town', href: '/construction/faisal-town/7-marla-house-construction' },
+          { label: '10 Marla House Construction in Faisal Town', href: '/construction/faisal-town/10-marla-house-construction' },
+          { label: '14 Marla House Construction in Faisal Town', href: '/construction/faisal-town/14-marla-house-construction' },
+          { label: '1 Kanal House Construction in Faisal Town', href: '/construction/faisal-town/1-kanal-house-construction' },
+          { label: '2 Kanal House Construction in Faisal Town', href: '/construction/faisal-town/2-kanal-house-construction' },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Residential Plots',
+    href: '/residential-plots',
+    subItems: [
+      { label: 'All Residential', href: '/residential-plots/all-residential' },
+      { label: 'Luxury Plots', href: '/residential-plots/luxury-plots' },
+      { label: 'Affordable Plots', href: '/residential-plots/affordable-plots' },
+    ],
+  },
+  {
+    label: 'Commercial Plots',
+    href: '/commercial-plots',
+    subItems: [
+      { label: 'Retail Plots', href: '/commercial-plots/retail-plots' },
+      { label: 'Office Sites', href: '/commercial-plots/office-sites' },
+      { label: 'Industrial Land', href: '/commercial-plots/industrial-land' },
+    ],
+  },
+  {
+    label: 'Houses',
+    href: '/houses',
+    subItems: [
+      { label: 'Houses for Sale', href: '/houses/for-sale' },
+      { label: 'Villas', href: '/houses/villas' },
+      { label: 'Townhouses', href: '/houses/townhouses' },
+    ],
+  },
+  {
+    label: 'Shop Flat Offices',
+    href: '/shop-flat-offices',
+    subItems: [
+      { label: 'Shops', href: '/shop-flat-offices/shops' },
+      { label: 'Flats', href: '/shop-flat-offices/flats' },
+      { label: 'Offices', href: '/shop-flat-offices/offices' },
+    ],
+  },
+  {
+    label: 'Projects & Marketing',
+    href: '/projects',
+    subItems: [
+      { label: 'Projects', href: '/projects' },
+      { label: 'Marketing', href: '/blog' },
+      { label: 'Market Insights', href: '/blog' },
+    ],
+  },
+  {
+    label: 'Map Designing',
+    href: '/map-designing',
+    subItems: [
+      { label: 'Location Map', href: '/location-map' },
+      { label: 'Project Map', href: '/project-map' },
+      { label: 'Office Locations', href: '/office-locations' },
+    ],
+  },
+  {
+    label: 'Others',
+    href: '/about',
+    subItems: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Gallery', href: '/gallery' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
 ] as const
 
 export const PRICE_RANGES = [
