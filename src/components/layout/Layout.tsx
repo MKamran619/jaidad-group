@@ -12,6 +12,7 @@ const pageTransition = {
 
 export function Layout() {
   const location = useLocation()
+  const isSinglePageFooterRoute = location.pathname === '/construction/b-17-mpchs/5-marla-house-construction-in-b-17'
 
   return (
     <div className="flex min-h-screen flex-col bg-[var(--background)]">
@@ -25,7 +26,7 @@ export function Layout() {
           <Outlet />
         </motion.main>
       </AnimatePresence>
-      <Footer />
+      {!isSinglePageFooterRoute && <Footer />}
     </div>
   )
 }
